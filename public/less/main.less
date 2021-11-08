@@ -1,5 +1,7 @@
 @startScreenBackgroundColor: linear-gradient(180deg, #76b3df, #17639a);
 html {
+    height: 100%;
+    width: 100%;
     margin: 0px;
     padding: 0px;
     background-image: @startScreenBackgroundColor;
@@ -14,11 +16,22 @@ body {
     margin: 0px;
     padding: 0px;
     overflow: hidden;
-    font-family: "Audiowide", cursive;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.3rem;
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
     -khtml-user-select: none; /* Konqueror HTML */
     -moz-user-select: none; /* Old versions of Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+.TestScroller {
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    width: 5rem;
+    height: 10rem;
+    border: 1px solid red;
+    overflow-y: scroll;
 }
