@@ -7,13 +7,6 @@ class MainDiv extends Component<{}, {}> {
         return (
             <div className="Main">
                 <TestScroller></TestScroller>
-                <button
-                    onClick={() => {
-                        window.navigator.vibrate(100);
-                    }}
-                >
-                    Click me!
-                </button>
             </div>
         );
     }
@@ -21,13 +14,3 @@ class MainDiv extends Component<{}, {}> {
 
 const domContainer = document.querySelector("#reactDom");
 ReactDOM.render(createElement(MainDiv), domContainer);
-
-var scrollable = true;
-
-var listener = function (e: Event) {
-    if (!scrollable) {
-        e.preventDefault();
-    }
-};
-
-document.addEventListener("touchmove", listener, { passive: false });
