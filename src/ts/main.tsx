@@ -3,7 +3,71 @@ import ReactDOM from "react-dom";
 
 class MainDiv extends Component<{}, {}> {
     render() {
-        return <p>hi</p>;
+        return (
+            <div className="Main">
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+                <p>Hello</p>
+            </div>
+        );
     }
 }
 
