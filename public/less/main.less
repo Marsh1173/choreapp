@@ -5,6 +5,7 @@ html {
     margin: 0px;
     padding: 0px;
     overflow: hidden;
+    touch-action: none;
 }
 
 body {
@@ -13,6 +14,7 @@ body {
     background-image: @startScreenBackgroundColor;
     position: relative;
     overflow: hidden;
+    touch-action: none;
 }
 
 * {
@@ -27,6 +29,7 @@ body {
     -moz-user-select: none; /* Old versions of Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+    touch-action: manipulation;
 }
 
 .Main {
