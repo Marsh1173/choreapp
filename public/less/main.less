@@ -33,15 +33,20 @@ body {
 .TestScroller {
     height: 100%;
     width: 100%;
+    width: 5rem;
+    height: 5rem;
+    border: 1px solid red;
     overflow-y: scroll;
+    touch-action: pan-y;
 }
 .testScrollerContainer {
     height: calc(100% + 100px);
+    touch-action: pan-y;
 }
 
 .testDiv {
     width: 5rem;
     height: 5rem;
     border: 1px solid red;
-    touch-action: auto;
+    touch-action: pan-y;
 }
