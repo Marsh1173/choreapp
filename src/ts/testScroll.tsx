@@ -9,6 +9,10 @@ export const TestScroller: React.FC<{}> = () => {
                 <p>Hi</p>
                 <p>Hi</p>
                 <p>Hi</p>
+                <div className="testDiv"></div>
+                <div className="testDiv"></div>
+                <div className="testDiv"></div>
+                <div className="testDiv"></div>
             </div>
         </div>
     );

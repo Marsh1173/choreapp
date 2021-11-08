@@ -13,6 +13,7 @@ body {
     background-image: @startScreenBackgroundColor;
     position: relative;
     overflow: hidden;
+    touch-action: none;
 }
 
 * {
@@ -35,5 +36,11 @@ body {
     overflow-y: scroll;
 }
 .testScrollerContainer {
-    height: calc(100% + 1px);
+    height: calc(100% + 100px);
+}
+
+.testDiv {
+    width: 5rem;
+    height: 5rem;
+    border: 1px solid red;
 }
