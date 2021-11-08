@@ -7,9 +7,6 @@ export const TestScroller: React.FC<{}> = () => {
             <p>Hi</p>
             <p>Hi</p>
             <p>Hi</p>
-            <p>Hi</p>
-            <p>Hi</p>
-            <p>Hi</p>
         </div>
     );
 };
