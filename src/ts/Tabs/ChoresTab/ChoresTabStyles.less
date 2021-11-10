@@ -1,0 +1,47 @@
+.ChoresTab {
+    max-height: calc(100% - 4px);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
+}
+.choreContainer {
+    max-height: 100%;
+    overflow-y: scroll;
+    touch-action: pan-y;
+}
+.ChoresTab .chores,
+.ChoresTab .finished,
+.ChoresTab .coming-up {
+    margin-top: 0.2rem;
+    padding: 0.5rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.5rem;
+}
+.ChoresTab .coming-up {
+    margin-bottom: 4rem;
+}
+
+@addButtonSize: 3.6rem;
+
+.addButton {
+    position: absolute;
+    bottom: 17%;
+    left: calc(50% - 1.8rem - 3px);
+    align-self: center;
+
+    width: @addButtonSize;
+    height: @addButtonSize;
+    border: 6px solid rgba(0, 0, 0, 0.7);
+    border-radius: 3rem;
+
+    background-color: rgb(211, 245, 255);
+}
+
+.addIcon {
+    width: 2.8rem;
+    height: 2.8rem;
+    margin: 0.4rem;
+    filter: invert(30%) sepia(71%) saturate(1659%) hue-rotate(182deg) brightness(101%) contrast(104%);
+}
+
+//background blue filter: invert(26%) sepia(74%) saturate(1013%) hue-rotate(174deg) brightness(99%) contrast(89%);
+//dark green filter: invert(28%) sepia(93%) saturate(5791%) hue-rotate(147deg) brightness(93%) contrast(101%);

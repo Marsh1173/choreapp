@@ -8,11 +8,11 @@ import { ProfileTab } from "./Tabs/ProfileTab/ProfileTab";
 import { SettingsTab } from "./Tabs/SettingsTab/SettingsTab";
 
 export interface TabName {
-    name: "chores" | "groups" | "profile" | "settings";
+    name: "Chores" | "Groups" | "Profile" | "Settings";
 }
 
 export const MainDiv: React.FC<{}> = () => {
-    let startTab: TabName = { name: "chores" };
+    let startTab: TabName = { name: "Chores" };
 
     const [currentTab, changeTabView] = useState(startTab);
 
@@ -28,16 +28,16 @@ export const MainDiv: React.FC<{}> = () => {
         settingsRef.current!.clearSelected();
 
         switch (tabName.name) {
-            case "chores":
+            case "Chores":
                 choresRef.current!.setSelected();
                 break;
-            case "groups":
+            case "Groups":
                 groupsRef.current!.setSelected();
                 break;
-            case "profile":
+            case "Profile":
                 profileRef.current!.setSelected();
                 break;
-            case "settings":
+            case "Settings":
                 settingsRef.current!.setSelected();
                 break;
         }
@@ -50,19 +50,19 @@ export const MainDiv: React.FC<{}> = () => {
     }, []);
 
     return (
-        <div className="Main">
+        <div className="Main fade-in">
             <div className="scrollContainer">
                 {/* <TestScroller></TestScroller> */}
-                {currentTab.name == "chores" && <ChoresTab></ChoresTab>}
-                {currentTab.name == "groups" && <GroupsTab></GroupsTab>}
-                {currentTab.name == "profile" && <ProfileTab></ProfileTab>}
-                {currentTab.name == "settings" && <SettingsTab></SettingsTab>}
+                {currentTab.name == "Chores" && <ChoresTab></ChoresTab>}
+                {currentTab.name == "Groups" && <GroupsTab></GroupsTab>}
+                {currentTab.name == "Profile" && <ProfileTab></ProfileTab>}
+                {currentTab.name == "Settings" && <SettingsTab></SettingsTab>}
             </div>
             <div className="tabBar">
-                <MainViewTab ref={choresRef} tabName={{ name: "chores" }} imgName="chores.png" onClickMethod={changeTab}></MainViewTab>
-                <MainViewTab ref={groupsRef} tabName={{ name: "groups" }} imgName="groups.png" onClickMethod={changeTab}></MainViewTab>
-                <MainViewTab ref={profileRef} tabName={{ name: "profile" }} imgName="profile.png" onClickMethod={changeTab}></MainViewTab>
-                <MainViewTab ref={settingsRef} tabName={{ name: "settings" }} imgName="settings.png" onClickMethod={changeTab}></MainViewTab>
+                <MainViewTab ref={choresRef} tabName={{ name: "Chores" }} imgName="chores.png" onClickMethod={changeTab}></MainViewTab>
+                <MainViewTab ref={groupsRef} tabName={{ name: "Groups" }} imgName="groups.png" onClickMethod={changeTab}></MainViewTab>
+                <MainViewTab ref={profileRef} tabName={{ name: "Profile" }} imgName="profile.png" onClickMethod={changeTab}></MainViewTab>
+                <MainViewTab ref={settingsRef} tabName={{ name: "Settings" }} imgName="settings.png" onClickMethod={changeTab}></MainViewTab>
             </div>
         </div>
     );

@@ -2,21 +2,39 @@
     height: 100%;
     width: 100%;
     touch-action: none;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.9);
 }
 
 .mainViewContainer,
 .scrollContainer {
     width: calc(100% - 1rem);
     height: 80%;
-    border: 1px solid red;
     overflow-y: scroll;
     touch-action: pan-y;
     margin: 0.5rem;
 }
 
+h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.45);
+}
+
 .tabBar {
     display: flex;
     justify-content: space-between;
+}
+
+.shadowed {
+    box-shadow: 1px 3px 7px #00000033;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    transition: 0.07s all;
+}
+.shadowed:active {
+    box-shadow: 0px 1px 1px #0000005e;
+    transform: translateY(2px);
 }
 
 .fade-in {
@@ -26,8 +44,8 @@
     -o-animation: @fadeInAnimation;
     -ms-animation: @fadeInAnimation;
 }
-@fadeInAnimation: fadeIn 0.3s;
-@startTranslateY: translateY(0.5rem);
+@fadeInAnimation: fadeIn 0.4s;
+@startTranslateY: translateY(1rem);
 @keyframes fadeIn {
     0% {
         transform: @startTranslateY;
