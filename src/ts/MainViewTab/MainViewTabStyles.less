@@ -4,25 +4,32 @@
     width: @iconSize;
     height: calc(@iconSize + 1rem);
     padding: 0.3rem;
+    opacity: 0.4;
+
+    transition: 0.1s all;
 }
 .MainViewTab p {
-    font-weight: 900;
-    font-size: 0.8rem;
+    font-weight: bold;
+    font-size: 0.7rem;
     text-align: center;
-    color: rgb(50, 50, 50);
+    color: rgb(0, 0, 0);
 }
 
 .mainViewTabIcon {
     height: @iconSize;
     width: @iconSize;
-    filter: invert(19%) sepia(8%) saturate(6%) hue-rotate(319deg) brightness(99%) contrast(98%);
+    filter: blur(1px);
+    transition: 0.1s all;
 }
-
 .MainViewTab.selected .mainViewTabIcon {
     filter: none;
 }
-.MainViewTab.selected p {
-    color: black;
+
+.MainViewTab.selected {
+    opacity: 1;
+}
+.MainViewTab:active {
+    background-color: none;
 }
 
 // 444444 filter: invert(21%) sepia(0%) saturate(1958%) hue-rotate(195deg) brightness(103%) contrast(81%);
