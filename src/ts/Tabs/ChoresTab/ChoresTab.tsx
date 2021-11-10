@@ -1,5 +1,6 @@
 import React from "react";
 import "./ChoresTabStyles.less";
+import { FinishedChore } from "./FinishedChore/FinishedChore";
 import { UnfinishedChore } from "./UnfinishedChore/UnfinishedChore";
 
 export const ChoresTab: React.FC<{}> = () => {
@@ -14,9 +15,9 @@ export const ChoresTab: React.FC<{}> = () => {
                 </div>
                 <div className="finished">
                     <h1>Finished</h1>
-                    <UnfinishedChore></UnfinishedChore>
-                    <UnfinishedChore></UnfinishedChore>
-                    <UnfinishedChore></UnfinishedChore>
+                    <FinishedChore></FinishedChore>
+                    <FinishedChore></FinishedChore>
+                    <FinishedChore></FinishedChore>
                 </div>
                 <div className="coming-up">
                     <h1>Coming Up</h1>

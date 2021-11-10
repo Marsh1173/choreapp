@@ -1,7 +1,8 @@
+@import "../../../MainStyles.less";
+
 .UnfinishedChore {
-    width: calc(100% - 6px);
+    width: calc(100%);
     height: 3rem;
-    border: 3px solid rgba(0, 0, 0, 0.45);
     border-radius: 0.5rem;
     margin-top: 0.5rem;
     background-color: rgba(211, 245, 255, 0.85);
@@ -11,25 +12,29 @@
     justify-content: space-between;
 }
 
-.choreTitle {
+.UnfinishedChore .choreTitle {
     font-weight: lighter;
     color: rgba(0, 0, 0, 0.8);
 }
-.choreTime {
+.UnfinishedChore .choreTime {
     color: rgba(0, 0, 0, 0.4);
     font-weight: 600;
     font-size: 0.6rem;
 }
 
-.checkCircle {
-    width: 2.3rem;
-    height: 2.3rem;
+@checkCircleSize: 2.2rem;
+
+.UnfinishedChore .checkCircle {
+    width: @checkCircleSize;
+    height: @checkCircleSize;
     border-radius: 3rem;
-    background-color: black;
     margin-left: 0.3rem;
+
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
-.textDetails {
+.UnfinishedChore .textDetails {
     margin-right: 0.5rem;
     text-align: end;
 }
