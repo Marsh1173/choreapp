@@ -57,7 +57,7 @@ export const MainDiv: React.FC<{}> = () => {
     return (
         <div className="Main fade-in">
             <div className="tabBar">
-                <MainViewTab ref={tasksRef} tabName={{ name: "Tasks" }} imgName="check.png" onClickMethod={changeTab}></MainViewTab>
+                <MainViewTab ref={tasksRef} tabName={{ name: "Tasks" }} imgName="checkIcon.png" onClickMethod={changeTab}></MainViewTab>
                 <MainViewTab ref={groupsRef} tabName={{ name: "Groups" }} imgName="groups.png" onClickMethod={changeTab}></MainViewTab>
                 <MainViewTab ref={profileRef} tabName={{ name: "Profile" }} imgName="profile.png" onClickMethod={changeTab}></MainViewTab>
                 <MainViewTab ref={settingsRef} tabName={{ name: "Settings" }} imgName="settings.png" onClickMethod={changeTab}></MainViewTab>
