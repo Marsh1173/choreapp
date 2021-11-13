@@ -2,34 +2,39 @@ import React, { Component, createElement, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { MainViewTab } from "./MainViewTab/MainViewTab";
 import "./MainStyles.less";
-import { ChoresTab } from "./Tabs/ChoresTab/ChoresTab";
+import { TasksTab } from "./Tabs/TasksTab/TasksTab";
 import { GroupsTab } from "./Tabs/GroupsTab/GroupsTab";
 import { ProfileTab } from "./Tabs/ProfileTab/ProfileTab";
 import { SettingsTab } from "./Tabs/SettingsTab/SettingsTab";
 
+let nextId: number = 0;
+export function getNextKey(): number {
+    return nextId++;
+}
+
 export interface TabName {
-    name: "Chores" | "Groups" | "Profile" | "Settings";
+    name: "Tasks" | "Groups" | "Profile" | "Settings";
 }
 
 export const MainDiv: React.FC<{}> = () => {
-    let startTab: TabName = { name: "Chores" };
+    let startTab: TabName = { name: "Tasks" };
 
     const [currentTab, changeTabView] = useState(startTab);
 
-    let choresRef: React.RefObject<MainViewTab> = React.createRef();
+    let tasksRef: React.RefObject<MainViewTab> = React.createRef();
     let groupsRef: React.RefObject<MainViewTab> = React.createRef();
     let profileRef: React.RefObject<MainViewTab> = React.createRef();
     let settingsRef: React.RefObject<MainViewTab> = React.createRef();
 
     const changeTab = (tabName: TabName) => {
-        choresRef.current!.clearSelected();
+        tasksRef.current!.clearSelected();
         groupsRef.current!.clearSelected();
         profileRef.current!.clearSelected();
         settingsRef.current!.clearSelected();
 
         switch (tabName.name) {
-            case "Chores":
-                choresRef.current!.setSelected();
+            case "Tasks":
+                tasksRef.current!.setSelected();
                 break;
             case "Groups":
                 groupsRef.current!.setSelected();
@@ -51,18 +56,18 @@ export const MainDiv: React.FC<{}> = () => {
 
     return (
         <div className="Main fade-in">
-            <div className="scrollContainer">
-                {/* <TestScroller></TestScroller> */}
-                {currentTab.name == "Chores" && <ChoresTab></ChoresTab>}
-                {currentTab.name == "Groups" && <GroupsTab></GroupsTab>}
-                {currentTab.name == "Profile" && <ProfileTab></ProfileTab>}
-                {currentTab.name == "Settings" && <SettingsTab></SettingsTab>}
-            </div>
             <div className="tabBar">
-                <MainViewTab ref={choresRef} tabName={{ name: "Chores" }} imgName="chores.png" onClickMethod={changeTab}></MainViewTab>
+                <MainViewTab ref={tasksRef} tabName={{ name: "Tasks" }} imgName="check.png" onClickMethod={changeTab}></MainViewTab>
                 <MainViewTab ref={groupsRef} tabName={{ name: "Groups" }} imgName="groups.png" onClickMethod={changeTab}></MainViewTab>
                 <MainViewTab ref={profileRef} tabName={{ name: "Profile" }} imgName="profile.png" onClickMethod={changeTab}></MainViewTab>
                 <MainViewTab ref={settingsRef} tabName={{ name: "Settings" }} imgName="settings.png" onClickMethod={changeTab}></MainViewTab>
+            </div>
+            <div className="scrollContainer">
+                {/* <TestScroller></TestScroller> */}
+                {currentTab.name == "Tasks" && <TasksTab></TasksTab>}
+                {currentTab.name == "Groups" && <GroupsTab></GroupsTab>}
+                {currentTab.name == "Profile" && <ProfileTab></ProfileTab>}
+                {currentTab.name == "Settings" && <SettingsTab></SettingsTab>}
             </div>
         </div>
     );

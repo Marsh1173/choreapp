@@ -1,12 +1,12 @@
-@iconSize: 3.2rem;
+@iconSize: 3.1rem;
 
 .MainViewTab {
-    width: @iconSize;
+    width: calc(@iconSize + 6px);
     height: calc(@iconSize + 1rem);
-    padding: 0.3rem;
+    padding: 0.2rem;
     opacity: 0.4;
 
-    transition: 0.2s all;
+    transition: 0.15s all;
 
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -24,7 +24,7 @@
     border: 3px solid rgba(0, 0, 0, 0);
     border-radius: 0.5rem;
 
-    transition: 0.2s all;
+    transition: 0.15s all;
 }
 .MainViewTab.selected .mainViewTabIcon {
     filter: none;
