@@ -8,7 +8,7 @@ export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
 
     return (
         <div className="AddTaskScreen">
-            <input className="nameInput"></input>
+            <input className="nameInput" inputMode="text"></input>
             <div className="buttonsDiv">
                 <button className="cancelButton clickScaleBig" onMouseUp={() => props.closeScreen()}>
                     Cancel
