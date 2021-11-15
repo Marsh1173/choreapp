@@ -8,7 +8,7 @@ import { GenericScreen } from "../../Screens/GenericScreen/GenericScreen";
 import { AddTaskScreen } from "../../Screens/AddTaskScreen/AddTaskScreen";
 
 export const TasksTab: React.FC<{}> = () => {
-    const [isAddingTask, changeIfAddingTaskState] = useState(true);
+    const [isAddingTask, changeIfAddingTaskState] = useState(false);
     const changeIfAddingTask = (value: boolean) => {
         changeIfAddingTaskState(value);
     };

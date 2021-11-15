@@ -6,8 +6,6 @@
     align-items: center;
 
     padding: 1rem;
-
-    border: 1px solid red;
 }
 
 .AddTaskScreen .buttonsDiv {
@@ -16,6 +14,8 @@
     justify-content: space-around;
 
     width: 100%;
+
+    margin-top: 1rem;
 }
 
 .AddTaskScreen .buttonsDiv button {
@@ -55,11 +55,13 @@
     width: 100%;
 }
 
-.groupDiv {
+.groupDiv,
+.AddTaskScreen .groupDiv .groupSelector {
     display: flex;
+    width: 100%;
     flex-direction: column;
     justify-content: center;
-    width: 100%;
+    align-items: center;
 }
 
 .AddTaskScreen .ifGroupSelector {
@@ -83,4 +85,23 @@
 .AddTaskScreen .ifGroupSelector p.selected {
     background-color: @goodColor;
     color: rgba(255, 255, 255, 0.801);
+}
+
+.groupSelector {
+    width: fit-content;
+}
+.AddTaskScreen .groupSelector .selectedGroup {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+
+    background-color: rgba(0, 0, 0, 0.185);
+    border-radius: 5px;
+
+    padding: 0.2rem;
+}
+.AddTaskScreen .groupSelector .selectedGroup p {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 1rem;
+    margin-left: 0.3rem;
 }
