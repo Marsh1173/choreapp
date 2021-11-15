@@ -14,7 +14,7 @@ export class TextInput extends React.Component<{}, TextInputState> {
     }
 
     render() {
-        return <input className="TextInput" value={this.state.inputValue} onChange={(e) => this.updateInputValue(e)} />;
+        return <input className="TextInput" value={this.state.inputValue} onChange={(e) => this.updateInputValue(e)} autoComplete="off" />;
     }
 
     updateInputValue(e: ChangeEvent<HTMLInputElement>) {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { TextInput } from "../../GenericComponents/TextInput/TextInput";
 import "./AddTaskScreenStyles.less";
 
@@ -7,14 +7,36 @@ export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
 
     const onCreate = () => {
         if (nameInputRef.current) {
-            console.log(nameInputRef.current.getValue());
+            let value: string = nameInputRef.current.getValue();
+            if (value == "") {
+                alert("Input a name");
+            } else {
+                console.log(value);
+                props.closeScreen();
+            }
         }
-        props.closeScreen();
     };
+
+    const [ifGroup, changeIfGroupState] = useState(true);
 
     return (
         <div className="AddTaskScreen">
-            <TextInput ref={nameInputRef}></TextInput>
+            <div className="nameInputDiv">
+                <p className="nameTitle">Name:</p>
+                <TextInput ref={nameInputRef}></TextInput>
+            </div>
+            <div className="groupDiv">
+                <div className="ifGroupSelector">
+                    <p className={`${ifGroup == true ? "selected" : ""}`} onMouseUp={() => changeIfGroupState(true)}>
+                        Group
+                    </p>
+                    <p className={`${ifGroup == false ? "selected" : ""}`} onMouseUp={() => changeIfGroupState(false)}>
+                        No Group
+                    </p>
+                </div>
+                {ifGroup && <div className="groupSelector">Sup</div>}
+            </div>
+            <div className="timeDiv"></div>
             <div className="buttonsDiv">
                 <button className="cancelButton clickScaleBig" onMouseUp={() => props.closeScreen()}>
                     Cancel

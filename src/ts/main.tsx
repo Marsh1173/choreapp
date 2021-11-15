@@ -56,7 +56,6 @@ export const MainDiv: React.FC<{}> = () => {
 
     return (
         <div className="Main fade-in">
-            <input type="text"></input>
             <div className="tabBar">
                 <MainViewTab ref={tasksRef} tabName={{ name: "Tasks" }} imgName="checkIcon.png" onClickMethod={changeTab}></MainViewTab>
                 <MainViewTab ref={groupsRef} tabName={{ name: "Groups" }} imgName="groups.png" onClickMethod={changeTab}></MainViewTab>

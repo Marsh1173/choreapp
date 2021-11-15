@@ -1,9 +1,13 @@
+@goodColor: #1f94e7;
+
 .AddTaskScreen {
     display: flex;
     flex-direction: column;
     align-items: center;
 
     padding: 1rem;
+
+    border: 1px solid red;
 }
 
 .AddTaskScreen .buttonsDiv {
@@ -25,13 +29,58 @@
     border-radius: 1rem;
 }
 
-.cancelButton {
+.AddTaskScreen .cancelButton {
     background-color: rgb(175, 175, 175);
 }
-.createButton {
-    background-color: #1f94e7;
+.AddTaskScreen .createButton {
+    background-color: @goodColor;
 }
 
 .AddTaskScreen .TextInput {
+    width: 70%;
+    margin-left: 7px;
+}
+
+.AddTaskScreen .nameTitle {
+    color: rgba(0, 0, 0, 0.644);
+}
+.AddTaskScreen .nameTitle,
+.AddTaskScreen .TextInput {
+    font-size: 0.9rem;
+}
+
+.AddTaskScreen .nameInputDiv {
+    display: flex;
+    justify-content: center;
     width: 100%;
+}
+
+.groupDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.AddTaskScreen .ifGroupSelector {
+    display: flex;
+    width: 12rem;
+    margin: 1rem;
+
+    border: 2px solid @goodColor;
+    border-radius: 6px;
+
+    justify-content: space-evenly;
+}
+
+.AddTaskScreen .ifGroupSelector p {
+    font-size: 0.9rem;
+    width: 50%;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.685);
+}
+
+.AddTaskScreen .ifGroupSelector p.selected {
+    background-color: @goodColor;
+    color: rgba(255, 255, 255, 0.801);
 }
