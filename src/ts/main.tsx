@@ -27,23 +27,23 @@ export const MainDiv: React.FC<{}> = () => {
     let settingsRef: React.RefObject<MainViewTab> = React.createRef();
 
     const changeTab = (tabName: TabName) => {
-        tasksRef.current!.clearSelected();
-        groupsRef.current!.clearSelected();
-        profileRef.current!.clearSelected();
-        settingsRef.current!.clearSelected();
+        tasksRef.current?.clearSelected();
+        groupsRef.current?.clearSelected();
+        profileRef.current?.clearSelected();
+        settingsRef.current?.clearSelected();
 
         switch (tabName.name) {
             case "Tasks":
-                tasksRef.current!.setSelected();
+                tasksRef.current?.setSelected();
                 break;
             case "Groups":
-                groupsRef.current!.setSelected();
+                groupsRef.current?.setSelected();
                 break;
             case "Profile":
-                profileRef.current!.setSelected();
+                profileRef.current?.setSelected();
                 break;
             case "Settings":
-                settingsRef.current!.setSelected();
+                settingsRef.current?.setSelected();
                 break;
         }
 
@@ -57,10 +57,10 @@ export const MainDiv: React.FC<{}> = () => {
     return (
         <div className="Main fade-in">
             <div className="tabBar">
+                <MainViewTab ref={profileRef} tabName={{ name: "Profile" }} imgName="profile.png" onClickMethod={changeTab}></MainViewTab>
                 <MainViewTab ref={tasksRef} tabName={{ name: "Tasks" }} imgName="checkIcon.png" onClickMethod={changeTab}></MainViewTab>
                 <MainViewTab ref={groupsRef} tabName={{ name: "Groups" }} imgName="groups.png" onClickMethod={changeTab}></MainViewTab>
-                <MainViewTab ref={profileRef} tabName={{ name: "Profile" }} imgName="profile.png" onClickMethod={changeTab}></MainViewTab>
-                <MainViewTab ref={settingsRef} tabName={{ name: "Settings" }} imgName="settings.png" onClickMethod={changeTab}></MainViewTab>
+                {/* <MainViewTab ref={settingsRef} tabName={{ name: "Settings" }} imgName="settings.png" onClickMethod={changeTab}></MainViewTab> */}
             </div>
             <div className="scrollContainer">
                 {/* <TestScroller></TestScroller> */}

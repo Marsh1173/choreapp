@@ -54,11 +54,13 @@
     justify-content: center;
     width: 100%;
 }
-
+.groupDiv {
+    margin: 1rem;
+    width: 100%;
+}
 .groupDiv,
 .AddTaskScreen .groupDiv .groupSelector {
     display: flex;
-    width: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -67,7 +69,6 @@
 .AddTaskScreen .ifGroupSelector {
     display: flex;
     width: 12rem;
-    margin: 1rem;
 
     border: 2px solid @goodColor;
     border-radius: 6px;
@@ -84,11 +85,12 @@
 
 .AddTaskScreen .ifGroupSelector p.selected {
     background-color: @goodColor;
-    color: rgba(255, 255, 255, 0.801);
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .groupSelector {
     width: fit-content;
+    margin: 0.2rem;
 }
 .AddTaskScreen .groupSelector .selectedGroup {
     width: fit-content;
@@ -102,6 +104,5 @@
 }
 .AddTaskScreen .groupSelector .selectedGroup p {
     color: rgba(0, 0, 0, 0.7);
-    font-size: 1rem;
-    margin-left: 0.3rem;
+    font-size: 1.1rem;
 }

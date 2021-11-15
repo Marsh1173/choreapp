@@ -6,6 +6,7 @@ import "./AddTaskScreenStyles.less";
 export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
     let nameInputRef: React.RefObject<TextInput> = React.createRef();
     let selectedGroupTextRef: React.RefObject<HTMLParagraphElement> = React.createRef();
+    let groupDropDownRef: React.RefObject<DropDown> = React.createRef();
 
     const onCreate = () => {
         if (nameInputRef.current) {
@@ -22,7 +23,9 @@ export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
     const [ifGroup, changeIfGroupState] = useState(false);
     const [ifGroupSelecting, changeIfGroupSelectingState] = useState(false);
 
-    let names: string[] = ["None", "Roomates", "Family"];
+    let getGroupNames: () => string[] = () => {
+        return names;
+    };
 
     return (
         <div className="AddTaskScreen">
@@ -42,17 +45,17 @@ export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
                 {ifGroup && (
                     <div className="groupSelector">
                         <div className="selectedGroup" onMouseUp={() => changeIfGroupSelectingState(true)}>
-                            <p>Group:</p>
                             <p ref={selectedGroupTextRef}>None</p>
                         </div>
 
                         {ifGroupSelecting && (
                             <DropDown
+                                ref={groupDropDownRef}
                                 onSelect={(value: string) => {
-                                    console.log(value);
+                                    names.push("here");
                                     selectedGroupTextRef.current!.innerText = value;
                                 }}
-                                names={names}
+                                getNames={getGroupNames}
                                 onClose={() => {
                                     changeIfGroupSelectingState(false);
                                 }}
@@ -77,3 +80,5 @@ export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
 export interface AddTaskProps {
     closeScreen: () => void;
 }
+
+const names: string[] = ["None", "Roomates", "Family"];
