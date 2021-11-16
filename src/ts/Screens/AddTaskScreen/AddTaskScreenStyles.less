@@ -35,74 +35,47 @@
 .AddTaskScreen .createButton {
     background-color: @goodColor;
 }
-
-.AddTaskScreen .TextInput {
-    width: 70%;
-    margin-left: 7px;
-}
-
-.AddTaskScreen .nameTitle {
-    color: rgba(0, 0, 0, 0.644);
-}
-.AddTaskScreen .nameTitle,
-.AddTaskScreen .TextInput {
-    font-size: 0.9rem;
-}
-
-.AddTaskScreen .nameInputDiv {
+.AddTaskScreen .nameInputDiv,
+.AddTaskScreen .timeDiv,
+.AddTaskScreen .groupDiv {
     display: flex;
-    justify-content: center;
-    width: 100%;
-}
-.groupDiv {
-    margin: 1rem;
-    width: 100%;
-}
-.groupDiv,
-.AddTaskScreen .groupDiv .groupSelector {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    margin: 0.25rem;
 }
 
-.AddTaskScreen .ifGroupSelector {
-    display: flex;
-    width: 12rem;
-
-    border: 2px solid @goodColor;
-    border-radius: 6px;
-
-    justify-content: space-evenly;
+.AddTaskScreen .TextInput,
+.AddTaskScreen .selectedGroup {
+    width: 70%;
 }
 
-.AddTaskScreen .ifGroupSelector p {
-    font-size: 0.9rem;
-    width: 50%;
-    text-align: center;
-    color: rgba(0, 0, 0, 0.685);
-}
-
-.AddTaskScreen .ifGroupSelector p.selected {
-    background-color: @goodColor;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.groupSelector {
-    width: fit-content;
+.AddTaskScreen .title {
+    color: rgba(0, 0, 0, 0.644);
     margin: 0.2rem;
+    font-size: 0.9rem;
 }
-.AddTaskScreen .groupSelector .selectedGroup {
-    width: fit-content;
-    display: flex;
-    justify-content: center;
+.AddTaskScreen .selectedGroup p,
+.AddTaskScreen .TextInput {
+    margin: 0.1rem;
+    font-size: 0.9rem;
+}
 
-    background-color: rgba(0, 0, 0, 0.185);
+.AddTaskScreen .selectedGroup {
+    background-color: rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-
-    padding: 0.2rem;
 }
-.AddTaskScreen .groupSelector .selectedGroup p {
-    color: rgba(0, 0, 0, 0.7);
-    font-size: 1.1rem;
+
+.AddTaskScreen .DropDown .menu {
+    left: 30%;
+}
+
+.AddTaskScreen .dateInput,
+.AddTaskScreen .timeInput,
+.AddTaskScreen .timeAmountInput {
+    font-size: 0.9rem;
+}
+
+.AddTaskScreen .timeAmountInput {
+    width: 2rem;
 }

@@ -6,9 +6,10 @@ import { Task } from "../../../Model/Task";
 import { getNextKey } from "../../main";
 import { GenericScreen } from "../../Screens/GenericScreen/GenericScreen";
 import { AddTaskScreen } from "../../Screens/AddTaskScreen/AddTaskScreen";
+import { tasks, finished, comingup } from "../../../DataAccessors/GenericTasks";
 
 export const TasksTab: React.FC<{}> = () => {
-    const [isAddingTask, changeIfAddingTaskState] = useState(false);
+    const [isAddingTask, changeIfAddingTaskState] = useState(true);
     const changeIfAddingTask = (value: boolean) => {
         changeIfAddingTaskState(value);
     };
@@ -17,20 +18,6 @@ export const TasksTab: React.FC<{}> = () => {
     const changeIfEditingTask = (value: boolean) => {
         changeIfEditingTaskState(value);
     };
-
-    let tasks: Task[] = [
-        { name: "Write talk", finished: false, time: "Sunday, before 8:00am", group: undefined },
-        { name: "Write talk", finished: false, time: "Sunday, before 8:00am", group: undefined },
-    ];
-    let finished: Task[] = [
-        { name: "October Budget", finished: true, time: "Saturday, before 11:00am", group: undefined },
-        { name: "October Budget", finished: true, time: "Saturday, before 11:00am", group: undefined },
-    ];
-    let comingup: Task[] = [
-        { name: "Milestone 4", finished: false, time: "Nov 19th, before midnight", group: undefined },
-        { name: "Milestone 4", finished: false, time: "Nov 19th, before midnight", group: undefined },
-        { name: "Milestone 4", finished: false, time: "Nov 19th, before midnight", group: undefined },
-    ];
 
     let taskElements: JSX.Element[] = tasks.map((task) => {
         return <UnfinishedTask task={task} key={getNextKey()}></UnfinishedTask>;

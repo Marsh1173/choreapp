@@ -15,11 +15,13 @@
 .UnfinishedTask .taskTitle {
     font-weight: lighter;
     color: rgba(0, 0, 0, 0.8);
+    font-size: 1rem;
 }
 .UnfinishedTask .taskTime {
-    color: rgba(0, 0, 0, 0.4);
+    color: rgba(0, 0, 0, 0.35);
     font-weight: 600;
     font-size: 0.6rem;
+    margin-top: 0.2rem;
 }
 
 @checkCircleSize: 2.2rem;
@@ -37,4 +39,12 @@
 .UnfinishedTask .textDetails {
     margin-right: 0.5rem;
     text-align: end;
+
+    height: 100%;
+    width: calc(95% - @checkCircleSize);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // border: 1px solid red;
 }

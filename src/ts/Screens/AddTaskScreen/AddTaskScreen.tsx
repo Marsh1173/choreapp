@@ -20,7 +20,6 @@ export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
         }
     };
 
-    const [ifGroup, changeIfGroupState] = useState(false);
     const [ifGroupSelecting, changeIfGroupSelectingState] = useState(false);
 
     let getGroupNames: () => string[] = () => {
@@ -30,41 +29,38 @@ export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
     return (
         <div className="AddTaskScreen">
             <div className="nameInputDiv">
-                <p className="nameTitle">Name:</p>
+                <p className="title">Name:</p>
                 <TextInput ref={nameInputRef}></TextInput>
             </div>
-            <div className="groupDiv">
-                <div className="ifGroupSelector">
-                    <p className={`${ifGroup == true ? "selected" : ""}`} onMouseUp={() => changeIfGroupState(true)}>
-                        Group
-                    </p>
-                    <p className={`${ifGroup == false ? "selected" : ""}`} onMouseUp={() => changeIfGroupState(false)}>
-                        No Group
-                    </p>
-                </div>
-                {ifGroup && (
-                    <div className="groupSelector">
-                        <div className="selectedGroup" onMouseUp={() => changeIfGroupSelectingState(true)}>
-                            <p ref={selectedGroupTextRef}>None</p>
-                        </div>
-
-                        {ifGroupSelecting && (
-                            <DropDown
-                                ref={groupDropDownRef}
-                                onSelect={(value: string) => {
-                                    names.push("here");
-                                    selectedGroupTextRef.current!.innerText = value;
-                                }}
-                                getNames={getGroupNames}
-                                onClose={() => {
-                                    changeIfGroupSelectingState(false);
-                                }}
-                            ></DropDown>
-                        )}
-                    </div>
-                )}
+            <hr></hr>
+            <div className="timeDiv">
+                <p className="title">Due by:</p>
+                <input className="timeInput" type="time"></input>
             </div>
-            <div className="timeDiv"></div>
+            <div className="timeDiv">
+                <p className="title">On:</p>
+                <input className="dateInput" type="date"></input>
+            </div>
+            <hr></hr>
+            <div className="groupDiv">
+                <p className="title">Group:</p>
+                <div className="selectedGroup" onMouseUp={() => changeIfGroupSelectingState(true)}>
+                    <p ref={selectedGroupTextRef}>None</p>
+                </div>
+            </div>
+            {ifGroupSelecting && (
+                <DropDown
+                    ref={groupDropDownRef}
+                    onSelect={(value: string) => {
+                        names.push("here");
+                        selectedGroupTextRef.current!.innerText = value;
+                    }}
+                    getNames={getGroupNames}
+                    onClose={() => {
+                        changeIfGroupSelectingState(false);
+                    }}
+                ></DropDown>
+            )}
             <div className="buttonsDiv">
                 <button className="cancelButton clickScaleBig" onMouseUp={() => props.closeScreen()}>
                     Cancel
