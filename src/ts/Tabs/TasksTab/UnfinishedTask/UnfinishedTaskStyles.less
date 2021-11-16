@@ -1,11 +1,12 @@
 @import "../../../MainStyles.less";
 
 .UnfinishedTask {
-    width: calc(100%);
-    height: 3rem;
     border-radius: 0.5rem;
-    margin-top: 0.5rem;
     background-color: rgba(211, 245, 255, 0.85);
+
+    width: calc(100%);
+    margin-top: 0.5rem;
+    padding: 0.2rem;
 
     display: flex;
     align-items: center;
@@ -23,6 +24,14 @@
     font-size: 0.6rem;
     margin-top: 0.2rem;
 }
+.UnfinishedTask .taskGroup {
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: 600;
+    font-size: 0.6rem;
+
+    text-align: center;
+    transform: translateX(-1.1rem);
+}
 
 @checkCircleSize: 2.2rem;
 
@@ -31,6 +40,7 @@
     max-height: @checkCircleSize;
     min-width: @checkCircleSize;
     min-height: @checkCircleSize;
+
     border-radius: 3rem;
     margin-left: 0.3rem;
 
@@ -39,7 +49,7 @@
 }
 
 .UnfinishedTask .textDetails {
-    margin-right: 0.5rem;
+    margin-right: 0.2rem;
     text-align: end;
 
     height: 100%;

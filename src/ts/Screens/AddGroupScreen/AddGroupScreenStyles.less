@@ -1,0 +1,80 @@
+@goodColor: #1f94e7;
+
+.AddGroupScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 1rem;
+    height: 93%;
+}
+
+.AddGroupScreen .buttonsDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    width: 100%;
+    margin-top: 18rem;
+    overflow: visible;
+}
+
+.AddGroupScreen button {
+    padding: 0.2rem;
+    width: 5rem;
+
+    font-size: 1.1rem;
+    color: white;
+
+    border: none;
+    border-radius: 1rem;
+}
+.AddGroupScreen .addPersonButton {
+    width: 6rem;
+    font-size: 0.8rem;
+    margin: 0.5rem;
+}
+
+.AddGroupScreen .cancelButton,
+.AddGroupScreen .addPersonButton {
+    background-color: rgb(175, 175, 175);
+}
+.AddGroupScreen .createButton {
+    background-color: @goodColor;
+}
+
+.AddGroupScreen .nameInputDiv {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0.25rem;
+}
+
+.AddGroupScreen .TextInput {
+    width: 70%;
+}
+
+.AddGroupScreen .nameInputDiv .title {
+    color: rgba(0, 0, 0, 0.644);
+    text-align: end;
+}
+.AddGroupScreen .TextInput,
+.AddGroupScreen .title {
+    margin: 0.2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.AddGroupScreen .memberInputDiv {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0.25rem;
+
+    color: rgba(0, 0, 0, 0.644);
+}
+
+.AddGroupScreen pre,
+.AddGroupScreen p {
+    font-weight: 400;
+}

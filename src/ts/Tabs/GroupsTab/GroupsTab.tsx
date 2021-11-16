@@ -7,6 +7,7 @@ import { GenericScreen } from "../../Screens/GenericScreen/GenericScreen";
 import { Group } from "../../../Model/Group";
 import { GroupComponent } from "./GroupComponent/GroupComponent";
 import { AddTaskScreen } from "../../Screens/AddTaskScreen/AddTaskScreen";
+import { AddGroupScreen } from "../../Screens/AddGroupScreen/AddGroupScreen";
 
 export const GroupsTab: React.FC<{}> = () => {
     const [isAddingGroup, changeIfAddingGroupState] = useState(false);
@@ -31,7 +32,7 @@ export const GroupsTab: React.FC<{}> = () => {
             </div>
             {isAddingGroup && (
                 <div>
-                    <GenericScreen element={<AddTaskScreen closeScreen={() => changeIfAddingGroup(false)}></AddTaskScreen>}></GenericScreen>
+                    <GenericScreen element={<AddGroupScreen closeScreen={() => changeIfAddingGroup(false)}></AddGroupScreen>}></GenericScreen>
                 </div>
             )}
         </div>

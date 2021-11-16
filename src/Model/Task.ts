@@ -1,6 +1,8 @@
+import { Group } from "./Group";
+
 export interface Task {
     name: string;
     finished: boolean;
-    group: string | undefined;
+    group: Group | undefined;
     time: string;
 }
