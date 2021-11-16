@@ -9,15 +9,15 @@ import { AddTaskScreen } from "../../Screens/AddTaskScreen/AddTaskScreen";
 import { tasks, finished, comingup } from "../../../DataAccessors/GenericTasks";
 
 export const TasksTab: React.FC<{}> = () => {
-    const [isAddingTask, changeIfAddingTaskState] = useState(true);
+    const [isAddingTask, changeIfAddingTaskState] = useState(false);
     const changeIfAddingTask = (value: boolean) => {
         changeIfAddingTaskState(value);
     };
 
-    const [isEditingTask, changeIfEditingTaskState] = useState(false);
-    const changeIfEditingTask = (value: boolean) => {
-        changeIfEditingTaskState(value);
-    };
+    // const [isEditingTask, changeIfEditingTaskState] = useState(false);
+    // const changeIfEditingTask = (value: boolean) => {
+    //     changeIfEditingTaskState(value);
+    // };
 
     let taskElements: JSX.Element[] = tasks.map((task) => {
         return <UnfinishedTask task={task} key={getNextKey()}></UnfinishedTask>;
@@ -45,7 +45,7 @@ export const TasksTab: React.FC<{}> = () => {
                     {comingupElements}
                 </div>
             </div>
-            <div className="addButton shadowed fade-in clickScaleBig" onClick={() => changeIfAddingTask(true)}>
+            <div className="addButton shadowed fade-in clickScaleBig" onMouseUp={() => changeIfAddingTask(true)}>
                 <img className="addIcon" src="./images/add.png"></img>
             </div>
             {isAddingTask && (
@@ -53,11 +53,11 @@ export const TasksTab: React.FC<{}> = () => {
                     <GenericScreen element={<AddTaskScreen closeScreen={() => changeIfAddingTask(false)}></AddTaskScreen>}></GenericScreen>
                 </div>
             )}
-            {isEditingTask && (
+            {/* {isEditingTask && (
                 <div>
                     <GenericScreen element={<AddTaskScreen closeScreen={() => changeIfEditingTask(false)}></AddTaskScreen>}></GenericScreen>
                 </div>
-            )}
+            )} */}
         </div>
     );
 };

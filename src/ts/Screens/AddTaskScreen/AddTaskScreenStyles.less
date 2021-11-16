@@ -6,6 +6,7 @@
     align-items: center;
 
     padding: 1rem;
+    height: 93%;
 }
 
 .AddTaskScreen .buttonsDiv {
@@ -14,8 +15,7 @@
     justify-content: space-around;
 
     width: 100%;
-
-    margin-top: 1rem;
+    margin-top: 18rem;
 }
 
 .AddTaskScreen .buttonsDiv button {
@@ -39,7 +39,6 @@
 .AddTaskScreen .timeDiv,
 .AddTaskScreen .groupDiv {
     display: flex;
-    justify-content: center;
     align-items: center;
     width: 100%;
     margin: 0.25rem;
@@ -52,17 +51,20 @@
 
 .AddTaskScreen .title {
     color: rgba(0, 0, 0, 0.644);
-    margin: 0.2rem;
-    font-size: 0.9rem;
+    width: 3.5rem;
+    text-align: end;
 }
 .AddTaskScreen .selectedGroup p,
-.AddTaskScreen .TextInput {
-    margin: 0.1rem;
+.AddTaskScreen .TextInput,
+.AddTaskScreen .title {
+    margin: 0.2rem;
     font-size: 0.9rem;
+    font-weight: 500;
 }
 
 .AddTaskScreen .selectedGroup {
     background-color: rgba(0, 0, 0, 0.1);
+    color: @goodColor;
     border-radius: 5px;
 }
 
@@ -73,6 +75,7 @@
 .AddTaskScreen .dateInput,
 .AddTaskScreen .timeInput,
 .AddTaskScreen .timeAmountInput {
+    color: @goodColor;
     font-size: 0.9rem;
 }
 

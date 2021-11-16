@@ -39,6 +39,29 @@ h1 {
     justify-content: space-evenly;
 }
 
+@addButtonSize: 3.6rem;
+
+.addButton {
+    position: absolute;
+    bottom: 20%;
+    left: calc(50% - 1.8rem - 3px);
+    align-self: center;
+
+    width: @addButtonSize;
+    height: @addButtonSize;
+    border: 6px solid @borderColor;
+    border-radius: 3rem;
+
+    background-color: rgb(211, 245, 255);
+}
+
+.addIcon {
+    width: 2.8rem;
+    height: 2.8rem;
+    margin: 0.4rem;
+    filter: @accentFilter;
+}
+
 .shadowed {
     box-shadow: 1px 3px 10px #00000044;
 }

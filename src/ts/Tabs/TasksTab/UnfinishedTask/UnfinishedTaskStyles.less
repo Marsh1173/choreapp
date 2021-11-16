@@ -27,8 +27,10 @@
 @checkCircleSize: 2.2rem;
 
 .UnfinishedTask .checkCircle {
-    width: @checkCircleSize;
-    height: @checkCircleSize;
+    max-width: @checkCircleSize;
+    max-height: @checkCircleSize;
+    min-width: @checkCircleSize;
+    min-height: @checkCircleSize;
     border-radius: 3rem;
     margin-left: 0.3rem;
 
