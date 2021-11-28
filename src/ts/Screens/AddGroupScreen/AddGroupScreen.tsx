@@ -26,11 +26,11 @@ export const AddGroupScreen: React.FC<AddGroupProps> = (props) => {
             <hr></hr>
             <div className="memberInputDiv">
                 <pre>{"  "}- Members -</pre>
-                <p className="title">@Me</p>
+                <p className="title">@ Me</p>
                 <p>
                     @<TextInput></TextInput>
                 </p>
-                <button className="addPersonButton clickScaleBig">Add Person</button>
+                <button className="addPersonButton clickScaleBig">Add Field</button>
             </div>
 
             <div className="buttonsDiv">
