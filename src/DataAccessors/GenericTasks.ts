@@ -2,7 +2,7 @@ import { Task } from "../Model/Task";
 import { groups } from "./GenericGroups";
 
 export const tasks: Task[] = [
-    { name: "Milestone 444444444444444444444444444444444444444444444444444444", finished: false, time: "Saturday, before midnight", group: undefined },
+    { name: "Milestone 4", finished: false, time: "Saturday, before midnight", group: undefined },
     { name: "Write talk", finished: false, time: "Sunday, before 8:00am", group: undefined },
     { name: "Cleaning Checks", finished: false, time: "Thursday, before 7:00pm", group: groups[0] },
 ];
