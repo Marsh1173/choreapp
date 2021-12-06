@@ -1,8 +1,11 @@
 //@accentColor: #ff7300;
 //@accentFilter: invert(50%) sepia(26%) saturate(5513%) hue-rotate(1deg) brightness(103%) contrast(102%);
 
+@mainColor: #008ecf;
+@mainFilter: invert(38%) sepia(82%) saturate(2515%) hue-rotate(174deg) brightness(93%) contrast(101%);
 @accentColor: #43b600;
 @accentFilter: invert(65%) sepia(53%) saturate(6091%) hue-rotate(64deg) brightness(102%) contrast(101%);
+@whiteFilter: invert(100%) sepia(100%) saturate(0%) hue-rotate(319deg) brightness(102%) contrast(101%);
 
 @borderColor: rgba(0, 0, 0, 0.7);
 
@@ -19,24 +22,38 @@
 
 .mainViewContainer,
 .scrollContainer {
-    width: calc(100% - 1rem);
+    width: calc(100%);
     height: 80%;
     overflow-y: scroll;
     touch-action: pan-y;
-    margin: 0.5rem;
 }
 
-h1 {
+.minor-text {
+    color: rgba(0, 0, 0, 0.35);
+    font-weight: 600;
+    font-size: 0.6rem;
+    margin-top: 0.2rem;
+}
+
+.major-text {
     font-weight: 500;
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.center-text {
     text-align: center;
-    font-size: 1.5rem;
-    color: rgba(0, 0, 0, 0.55);
+}
+.far-text {
+    text-align: right;
 }
 
 .tabBar {
     height: 20%;
     display: flex;
     justify-content: space-evenly;
+    background-color: @mainColor;
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 @addButtonSize: 3.6rem;
@@ -49,17 +66,16 @@ h1 {
 
     width: @addButtonSize;
     height: @addButtonSize;
-    border: 6px solid @borderColor;
+    border: 5px solid @mainColor;
     border-radius: 3rem;
 
-    background-color: rgb(211, 245, 255);
+    background-color: white;
 }
 
 .addIcon {
     width: 2.8rem;
     height: 2.8rem;
     margin: 0.4rem;
-    filter: @accentFilter;
 }
 
 .shadowed {

@@ -33,20 +33,20 @@ export const TasksTab: React.FC<{}> = () => {
         <div className="TasksTab">
             <div className="taskContainer fade-in">
                 <div className="tasks">
-                    <h1>Tasks</h1>
+                    <h1 className="major-text center-text">Tasks</h1>
                     {taskElements}
                 </div>
                 <div className="finished">
-                    <h1>Finished</h1>
+                    <h1 className="major-text center-text">Finished</h1>
                     {finishedElements}
                 </div>
                 <div className="coming-up">
-                    <h1>Coming Up</h1>
+                    <h1 className="major-text center-text">Coming Up</h1>
                     {comingupElements}
                 </div>
             </div>
             <div className="addButton shadowed fade-in clickScaleBig" onMouseUp={() => changeIfAddingTask(true)}>
-                <img className="addIcon" src="./images/add.png"></img>
+                <img className="addIcon" src="./images/addBlue.png"></img>
             </div>
             {isAddingTask && (
                 <div>

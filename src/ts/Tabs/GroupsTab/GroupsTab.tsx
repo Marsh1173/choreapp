@@ -23,12 +23,12 @@ export const GroupsTab: React.FC<{}> = () => {
         <div className="GroupsTab">
             <div className="groupsContainer fade-in">
                 <div className="groups">
-                    <h1>Groups</h1>
+                    <h1 className="major-text">Groups</h1>
                     {groupElements}
                 </div>
             </div>
             <div className="addButton shadowed fade-in clickScaleBig" onMouseUp={() => changeIfAddingGroup(true)}>
-                <img className="addIcon" src="./images/add.png"></img>
+                <img className="addIcon" src="./images/addBlue.png"></img>
             </div>
             {isAddingGroup && (
                 <div>

@@ -2,27 +2,16 @@
 
 .UnfinishedTask {
     border-radius: 0.5rem;
-    background-color: rgba(211, 245, 255, 0.85);
+    background-color: white;
+    border: 3px solid @mainColor;
 
-    width: calc(100%);
+    width: calc(100% - 8px);
     margin-top: 0.5rem;
     padding: 0.2rem;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.UnfinishedTask .taskTitle {
-    font-weight: lighter;
-    color: rgba(0, 0, 0, 0.8);
-    font-size: 1rem;
-}
-.UnfinishedTask .taskTime {
-    color: rgba(0, 0, 0, 0.35);
-    font-weight: 600;
-    font-size: 0.6rem;
-    margin-top: 0.2rem;
 }
 .UnfinishedTask .taskGroup {
     color: rgba(0, 0, 0, 0.5);
@@ -44,7 +33,7 @@
     border-radius: 3rem;
     margin-left: 0.3rem;
 
-    border: 2px solid rgba(0, 0, 0, 0.3);
+    border: 3px solid @mainColor;
     background-color: rgba(0, 0, 0, 0.05);
 }
 
