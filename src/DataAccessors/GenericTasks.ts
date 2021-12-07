@@ -13,5 +13,4 @@ export const finished: Task[] = [
 export const comingup: Task[] = [
     { name: "Second Prototype", finished: false, time: "Next Tuesday, before 8:00am", group: undefined },
     { name: "Project 5", finished: false, time: "Next Thursday, before midnight", group: groups[1] },
-    { name: "2nd Midterm", finished: false, time: "Next Friday, before midnight", group: undefined },
 ];
