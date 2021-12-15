@@ -117,17 +117,13 @@
 
 .fade-in {
     animation: @fadeInAnimation;
-
-    -webkit-animation-name: fadeIn;
-    -webkit-animation-duration: 0.4s;
-    -webkit-animation-iteration-count: 1;
-    -webkit-animation-timing-function: ease-out;
-    -webkit-animation-delay: 0.01s;
-
     -webkit-animation: @fadeInAnimation;
+    -webkit-animation-delay: 0.01s;
     -moz-animation: @fadeInAnimation;
     -o-animation: @fadeInAnimation;
     -ms-animation: @fadeInAnimation;
+
+    will-change: transform, opacity;
 }
 @fadeInAnimation: fadeIn 0.4s;
 @startTranslateY: translateY(1rem);
@@ -192,16 +188,13 @@
 
 .scale-in {
     animation: @scaleInAnimation;
-
-    -webkit-animation-name: scaleIn;
-    -webkit-animation-duration: 0.4s;
-    -webkit-animation-iteration-count: 1;
-    -webkit-animation-timing-function: ease-out;
+    -webkit-animation: @scaleInAnimation;
     -webkit-animation-delay: 0.01s;
-
     -moz-animation: @scaleInAnimation;
     -o-animation: @scaleInAnimation;
     -ms-animation: @scaleInAnimation;
+
+    will-change: transform, opacity;
 }
 @scaleInAnimation: scaleIn 0.4s;
 @startScale: scale(80%);
