@@ -20,12 +20,27 @@ export interface GenericScreenProps {
 export const GenericScreenButtons: React.FC<GenericScreenButtonProps> = (props) => {
     return (
         <div className="GenericScreenButtons">
-            <button className="secondaryButton clickScaleBig" onMouseUp={props.secondaryOnClick}>
-                {props.secondaryTitle}
-            </button>
-            <button className="mainButton clickScaleBig" onMouseUp={props.mainOnClick}>
-            {props.mainTitle}
-            </button>
+            <div className="extraButtons">
+                {props.copyOnClick && (
+                    <button className="copyButton clickScaleBig" onMouseUp={props.copyOnClick}>
+                        Copy
+                    </button>
+                )}
+                {props.deleteOnClick && (
+                    <button className="deleteButton clickScaleBig" onMouseUp={props.deleteOnClick}>
+                        Delete
+                    </button>
+                )}
+            </div>
+
+            <div className="standardButtons">
+                <button className="secondaryButton clickScaleBig" onMouseUp={props.secondaryOnClick}>
+                    {props.secondaryTitle}
+                </button>
+                <button className="mainButton clickScaleBig" onMouseUp={props.mainOnClick}>
+                    {props.mainTitle}
+                </button>
+            </div>
         </div>
     );
 };
@@ -35,4 +50,6 @@ export interface GenericScreenButtonProps {
     mainOnClick: () => void;
     secondaryTitle: string;
     secondaryOnClick: () => void;
+    deleteOnClick?: () => void;
+    copyOnClick?: () => void;
 }

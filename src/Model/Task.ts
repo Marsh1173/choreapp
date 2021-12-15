@@ -2,6 +2,7 @@ import { Group } from "./Group";
 
 export interface Task {
     name: string;
+    id: number;
     finished: boolean;
     group: Group | undefined;
     time: string;

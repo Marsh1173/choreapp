@@ -5,6 +5,7 @@ import { TaskHandler } from "../../../Model/TaskHandler";
 import { DropDown } from "../../GenericComponents/DropDown/DropDown";
 import { TextInput } from "../../GenericComponents/TextInput/TextInput";
 import { GenericScreenButtons } from "../GenericScreen/GenericScreen";
+import { getNextId } from "../../../Model/Id";
 import "./AddTaskScreenStyles.less";
 
 export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
@@ -19,7 +20,7 @@ export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
         let willAdd: boolean = false;
 
         if (!finalTask) {
-            finalTask = { name: "", finished: false, time: "", group: undefined };
+            finalTask = { name: "", id: getNextId(), finished: false, time: "", group: undefined };
             willAdd = true;
         }
 
@@ -48,38 +49,41 @@ export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
 
     return (
         <div className="AddTaskScreen">
-            <div className="nameInputDiv">
-                <p className="title">Name:</p>
-                <TextInput ref={nameInputRef} defaultValue={task ? task.name : ""}></TextInput>
-            </div>
-            <hr></hr>
-            <div className="timeDiv">
-                <p className="title">Due by:</p>
-                <input className="timeInput" type="time"></input>
-            </div>
-            <div className="timeDiv">
-                <p className="title">On:</p>
-                <input className="dateInput" type="date"></input>
-            </div>
-            <hr></hr>
-            <div className="groupDiv">
-                <p className="title">Group:</p>
-                <div className="selectedGroup" onMouseUp={() => changeIfGroupSelectingState(true)}>
-                    <p ref={selectedGroupTextRef}>None</p>
+            <div className="dataDiv">
+                <div className="nameInputDiv">
+                    <p className="title">Name:</p>
+                    <TextInput ref={nameInputRef} defaultValue={task ? task.name : ""}></TextInput>
                 </div>
+                <hr></hr>
+                <div className="timeDiv">
+                    <p className="title">Due by:</p>
+                    <input className="timeInput" type="time"></input>
+                </div>
+                <div className="timeDiv">
+                    <p className="title">On:</p>
+                    <input className="dateInput" type="date"></input>
+                </div>
+                <hr></hr>
+                <div className="groupDiv">
+                    <p className="title">Group:</p>
+                    <div className="selectedGroup" onMouseUp={() => changeIfGroupSelectingState(true)}>
+                        <p ref={selectedGroupTextRef}>None</p>
+                    </div>
+                </div>
+                {ifGroupSelecting && (
+                    <DropDown
+                        ref={groupDropDownRef}
+                        onSelect={(value: string) => {
+                            selectedGroupTextRef.current!.innerText = value;
+                        }}
+                        getNames={getGroupNames}
+                        onClose={() => {
+                            changeIfGroupSelectingState(false);
+                        }}
+                    ></DropDown>
+                )}
             </div>
-            {ifGroupSelecting && (
-                <DropDown
-                    ref={groupDropDownRef}
-                    onSelect={(value: string) => {
-                        selectedGroupTextRef.current!.innerText = value;
-                    }}
-                    getNames={getGroupNames}
-                    onClose={() => {
-                        changeIfGroupSelectingState(false);
-                    }}
-                ></DropDown>
-            )}
+
             <GenericScreenButtons
                 mainTitle={task ? "Save" : "Create"}
                 secondaryTitle={"Cancel"}
@@ -87,6 +91,26 @@ export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
                     onFinish(task);
                 }}
                 secondaryOnClick={props.closeScreen}
+                deleteOnClick={
+                    task
+                        ? () => {
+                              TaskHandler.taskList = TaskHandler.taskList.filter((listTask) => listTask.id != task!.id);
+                              props.closeScreen();
+                              TaskHandler.taskListChange();
+                          }
+                        : undefined
+                }
+                copyOnClick={
+                    task
+                        ? () => {
+                              let copyTask = Object.assign({}, task);
+                              copyTask.id = getNextId();
+                              TaskHandler.taskList.push(copyTask);
+                              props.closeScreen();
+                              TaskHandler.taskListChange();
+                          }
+                        : undefined
+                }
             ></GenericScreenButtons>
         </div>
     );

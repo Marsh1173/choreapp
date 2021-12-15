@@ -8,7 +8,7 @@ import { getNextKey } from "../../main";
 import { GenericScreen } from "../../Screens/GenericScreen/GenericScreen";
 import { AddTaskScreen } from "../../Screens/AddTaskScreen/AddTaskScreen";
 
-export var currentTask: Task = { name: "", finished: false, time: "", group: undefined };
+export var currentTask: Task = { name: "", id: -10, finished: false, time: "", group: undefined };
 
 export const TasksTab: React.FC<{}> = () => {
     const [value, setValue] = useState(0);
