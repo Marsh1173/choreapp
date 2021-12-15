@@ -14,19 +14,28 @@ export const TasksTab: React.FC<{}> = () => {
         changeIfAddingTaskState(value);
     };
 
-    // const [isEditingTask, changeIfEditingTaskState] = useState(false);
-    // const changeIfEditingTask = (value: boolean) => {
-    //     changeIfEditingTaskState(value);
-    // };
+    let currentTask: Task = { name: "", finished: false, time: "", group: undefined }
+    const getSelectedTask: () => Task = () => {
+        return currentTask;
+    }
+    const [isEditingTask, changeIfEditingTaskState] = useState(false);
+    const changeIfEditingTask = (value: Task | undefined) => {
+        if(value) {
+            currentTask = value;
+            changeIfEditingTaskState(true);
+        } else {
+            changeIfEditingTaskState(false);
+        }
+    };
 
     let taskElements: JSX.Element[] = tasks.map((task) => {
-        return <UnfinishedTask task={task} key={getNextKey()}></UnfinishedTask>;
+        return <UnfinishedTask onEdit={()=>{changeIfEditingTask(task)}} task={task} key={getNextKey()}></UnfinishedTask>;
     });
     let finishedElements: JSX.Element[] = finished.map((task) => {
         return <FinishedTask task={task} key={getNextKey()}></FinishedTask>;
     });
     let comingupElements: JSX.Element[] = comingup.map((task) => {
-        return <UnfinishedTask task={task} key={getNextKey()}></UnfinishedTask>;
+        return <UnfinishedTask onEdit={()=>{changeIfEditingTask(task)}} task={task} key={getNextKey()}></UnfinishedTask>;
     });
 
     return (
@@ -50,18 +59,22 @@ export const TasksTab: React.FC<{}> = () => {
             </div>
             {isAddingTask && (
                 <div>
-                    <GenericScreen element={<AddTaskScreen closeScreen={() => changeIfAddingTask(false)}></AddTaskScreen>}></GenericScreen>
+                    <GenericScreen title={"New Task"} element={<AddTaskScreen closeScreen={() => changeIfAddingTask(false)}></AddTaskScreen>}></GenericScreen>
                 </div>
             )}
-            {/* {isEditingTask && (
+            {isEditingTask && (
                 <div>
-                    <GenericScreen element={<AddTaskScreen closeScreen={() => changeIfEditingTask(false)}></AddTaskScreen>}></GenericScreen>
+                    <GenericScreen title={"Edit Task"} element={<AddTaskScreen task={currentTask} closeScreen={() => changeIfEditingTask(undefined)}></AddTaskScreen>}></GenericScreen>
                 </div>
-            )} */}
+            )}
         </div>
     );
 };
 
-export interface TaskProp {
+export interface UnfinishedTaskProp {
+    task: Task;
+    onEdit: () => void;
+}
+export interface FinishedTaskProp {
     task: Task;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { TextInput } from "../../GenericComponents/TextInput/TextInput";
+import {GenericScreenButtons} from "../GenericScreen/GenericScreen"
 import "./AddGroupScreenStyles.less";
 
 export const AddGroupScreen: React.FC<AddGroupProps> = (props) => {
@@ -32,15 +33,7 @@ export const AddGroupScreen: React.FC<AddGroupProps> = (props) => {
                 </p>
                 <button className="addPersonButton clickScaleBig">Add Field</button>
             </div>
-
-            <div className="buttonsDiv">
-                <button className="cancelButton clickScaleBig" onMouseUp={() => props.closeScreen()}>
-                    Cancel
-                </button>
-                <button className="createButton clickScaleBig" onMouseUp={() => onCreate()}>
-                    Create
-                </button>
-            </div>
+            <GenericScreenButtons mainTitle={"Create"} secondaryTitle={"Cancel"} mainOnClick={onCreate} secondaryOnClick={props.closeScreen}></GenericScreenButtons>
         </div>
     );
 };

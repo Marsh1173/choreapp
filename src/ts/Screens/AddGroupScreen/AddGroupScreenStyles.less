@@ -1,4 +1,4 @@
-@goodColor: #1f94e7;
+@import "../GenericScreen/GenericScreenStyles.less";
 
 .AddGroupScreen {
     display: flex;
@@ -9,14 +9,8 @@
     height: 93%;
 }
 
-.AddGroupScreen .buttonsDiv {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-
-    width: 100%;
-    margin-top: 18rem;
-    overflow: visible;
+.AddGroupScreen .GenericScreenButtons {
+    margin-top: 16rem;
 }
 
 .AddGroupScreen button {
@@ -33,14 +27,7 @@
     width: 6rem;
     font-size: 0.8rem;
     margin: 0.5rem;
-}
-
-.AddGroupScreen .cancelButton,
-.AddGroupScreen .addPersonButton {
     background-color: rgb(175, 175, 175);
-}
-.AddGroupScreen .createButton {
-    background-color: @goodColor;
 }
 
 .AddGroupScreen .nameInputDiv {

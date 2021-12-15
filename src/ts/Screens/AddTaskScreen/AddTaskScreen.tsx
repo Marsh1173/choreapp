@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { Task } from "../../../Model/Task";
 import { DropDown } from "../../GenericComponents/DropDown/DropDown";
 import { TextInput } from "../../GenericComponents/TextInput/TextInput";
+import { GenericScreenButtons } from "../GenericScreen/GenericScreen";
 import "./AddTaskScreenStyles.less";
 
 export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
@@ -26,11 +28,13 @@ export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
         return names;
     };
 
+    console.log(props.task?.name);
+
     return (
         <div className="AddTaskScreen">
             <div className="nameInputDiv">
                 <p className="title">Name:</p>
-                <TextInput ref={nameInputRef}></TextInput>
+                <TextInput ref={nameInputRef}>{(props.task) ? props.task.name : ""}</TextInput>
             </div>
             <hr></hr>
             <div className="timeDiv">
@@ -61,20 +65,14 @@ export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
                     }}
                 ></DropDown>
             )}
-            <div className="buttonsDiv">
-                <button className="cancelButton clickScaleBig" onMouseUp={() => props.closeScreen()}>
-                    Cancel
-                </button>
-                <button className="createButton clickScaleBig" onMouseUp={() => onCreate()}>
-                    Create
-                </button>
-            </div>
+            <GenericScreenButtons mainTitle={(props.task) ? "Save" : "Create"} secondaryTitle={"Cancel"} mainOnClick={onCreate} secondaryOnClick={props.closeScreen}></GenericScreenButtons>
         </div>
     );
 };
 
 export interface AddTaskProps {
     closeScreen: () => void;
+    task?: Task;
 }
 
 const names: string[] = ["None", "Roomates", "Family"];

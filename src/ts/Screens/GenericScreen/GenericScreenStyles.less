@@ -1,3 +1,5 @@
+@goodColor: #1f94e7;
+
 .GenericScreen {
     position: absolute;
     width: 100%;
@@ -19,10 +21,49 @@
 
     background-color: white;
     border-radius: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+.GenericScreen .container h1 {
+    font-weight: lighter;
+    color: rgba(0, 0, 0, 0.7);
+    margin: 1rem;
+}
+
 .GenericScreen .container hr {
     width: 100%;
     margin-top: 1rem;
     margin-bottom: 1rem;
     border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+
+.GenericScreenButtons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    width: 100%;
+    overflow: visible;
+}
+
+.GenericScreenButtons button {
+    padding: 0.2rem;
+    width: 5rem;
+
+    font-size: 1.1rem;
+    color: white;
+
+    border: none;
+    border-radius: 1rem;
+}
+
+.GenericScreenButtons .secondaryButton {
+    background-color: rgb(175, 175, 175);
+}
+.GenericScreenButtons .mainButton {
+    background-color: @goodColor;
 }

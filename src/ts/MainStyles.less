@@ -23,7 +23,7 @@
 .mainViewContainer,
 .scrollContainer {
     width: calc(100%);
-    height: 85%;
+    height: 83%;
     overflow-y: scroll;
     touch-action: pan-y;
 }
@@ -49,7 +49,7 @@
 }
 
 .tabBar {
-    height: 15%;
+    height: 17%;
     display: flex;
     justify-content: space-evenly;
     background-color: @mainColor;
@@ -60,7 +60,7 @@
 
 .addButton {
     position: absolute;
-    bottom: 15.5%;
+    bottom: 17.5%;
     left: calc(50% - 1.8rem - 3px);
     align-self: center;
 
@@ -76,6 +76,18 @@
     width: 2.8rem;
     height: 2.8rem;
     margin: 0.4rem;
+}
+
+@editIconSize: 1.5rem;
+
+.editIcon img {
+    opacity: 0.4;
+    margin: 0.2rem;
+
+    max-width: @editIconSize;
+    max-height: @editIconSize;
+    min-width: @editIconSize;
+    min-height: @editIconSize;
 }
 
 .shadowed {

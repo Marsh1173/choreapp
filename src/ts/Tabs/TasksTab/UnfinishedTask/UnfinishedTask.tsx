@@ -1,12 +1,12 @@
 import React from "react";
-import { TaskProp } from "../TasksTab";
+import { UnfinishedTaskProp } from "../TasksTab";
 import "./UnfinishedTaskStyles.less";
 
-export const UnfinishedTask: React.FC<TaskProp> = (props) => {
+export const UnfinishedTask: React.FC<UnfinishedTaskProp> = (props) => {
     return (
         <div className="UnfinishedTask shadowed">
             <div className="checkCircle clickScaleBig"></div>
-            <div className="editIcon clickScaleBig">
+            <div className="editIcon clickScaleBig" onMouseUp={props.onEdit}>
                 <img src="/images/edit.png"></img>
             </div>
             <div className="textDetails">

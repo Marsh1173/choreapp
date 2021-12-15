@@ -1,4 +1,4 @@
-@goodColor: #1f94e7;
+@import "../GenericScreen/GenericScreenStyles.less";
 
 .AddTaskScreen {
     display: flex;
@@ -9,33 +9,10 @@
     height: 93%;
 }
 
-.AddTaskScreen .buttonsDiv {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-
-    width: 100%;
-    margin-top: 18rem;
-    overflow: visible;
+.AddTaskScreen .GenericScreenButtons {
+    margin-top: 16rem;
 }
 
-.AddTaskScreen .buttonsDiv button {
-    padding: 0.2rem;
-    width: 5rem;
-
-    font-size: 1.1rem;
-    color: white;
-
-    border: none;
-    border-radius: 1rem;
-}
-
-.AddTaskScreen .cancelButton {
-    background-color: rgb(175, 175, 175);
-}
-.AddTaskScreen .createButton {
-    background-color: @goodColor;
-}
 .AddTaskScreen .nameInputDiv,
 .AddTaskScreen .timeDiv,
 .AddTaskScreen .groupDiv {

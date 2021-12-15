@@ -32,7 +32,7 @@ export const GroupsTab: React.FC<{}> = () => {
             </div>
             {isAddingGroup && (
                 <div>
-                    <GenericScreen element={<AddGroupScreen closeScreen={() => changeIfAddingGroup(false)}></AddGroupScreen>}></GenericScreen>
+                    <GenericScreen title={"New Group"} element={<AddGroupScreen closeScreen={() => changeIfAddingGroup(false)}></AddGroupScreen>}></GenericScreen>
                 </div>
             )}
         </div>
