@@ -8,6 +8,10 @@ export const GroupComponent: React.FC<GroupProp> = (props) => {
         return (
             <p className="memberName major-text" key={getNextKey()}>
                 {memberName}
+                <div className="editIcon clickScaleBig">
+                    as
+                    <img src="/images/edit.png"></img>
+                </div>
             </p>
         );
     });
