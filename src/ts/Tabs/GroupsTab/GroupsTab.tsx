@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import "./GroupsTabStyles.less";
 
-import { groups } from "../../../DataAccessors/GenericGroups";
 import { getNextKey } from "../../main";
 import { GenericScreen } from "../../Screens/GenericScreen/GenericScreen";
 import { Group } from "../../../Model/Group";
 import { GroupComponent } from "./GroupComponent/GroupComponent";
 import { AddTaskScreen } from "../../Screens/AddTaskScreen/AddTaskScreen";
 import { AddGroupScreen } from "../../Screens/AddGroupScreen/AddGroupScreen";
+import { GroupHandler } from "../../../Model/GroupHandler";
 
 export const GroupsTab: React.FC<{}> = () => {
     const [isAddingGroup, changeIfAddingGroupState] = useState(false);
@@ -15,7 +15,7 @@ export const GroupsTab: React.FC<{}> = () => {
         changeIfAddingGroupState(value);
     };
 
-    let groupElements: JSX.Element[] = groups.map((group) => {
+    let groupElements: JSX.Element[] = GroupHandler.groupList.map((group) => {
         return <GroupComponent group={group} key={getNextKey()}></GroupComponent>;
     });
 
@@ -32,7 +32,10 @@ export const GroupsTab: React.FC<{}> = () => {
             </div>
             {isAddingGroup && (
                 <div>
-                    <GenericScreen title={"New Group"} element={<AddGroupScreen closeScreen={() => changeIfAddingGroup(false)}></AddGroupScreen>}></GenericScreen>
+                    <GenericScreen
+                        title={"New Group"}
+                        element={<AddGroupScreen closeScreen={() => changeIfAddingGroup(false)}></AddGroupScreen>}
+                    ></GenericScreen>
                 </div>
             )}
         </div>

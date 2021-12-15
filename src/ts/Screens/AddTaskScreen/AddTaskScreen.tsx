@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { GroupHandler } from "../../../Model/GroupHandler";
 import { Task } from "../../../Model/Task";
+import { TaskHandler } from "../../../Model/TaskHandler";
 import { DropDown } from "../../GenericComponents/DropDown/DropDown";
 import { TextInput } from "../../GenericComponents/TextInput/TextInput";
 import { GenericScreenButtons } from "../GenericScreen/GenericScreen";
@@ -10,31 +12,45 @@ export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
     let selectedGroupTextRef: React.RefObject<HTMLParagraphElement> = React.createRef();
     let groupDropDownRef: React.RefObject<DropDown> = React.createRef();
 
-    const onCreate = () => {
+    let task: Task | undefined = props.getTask();
+
+    let onFinish = (finalTask: Task | undefined) => {
+        let willClose: boolean = true;
+        let willAdd: boolean = false;
+
+        if (!finalTask) {
+            finalTask = { name: "", finished: false, time: "", group: undefined };
+            willAdd = true;
+        }
+
         if (nameInputRef.current) {
             let value: string = nameInputRef.current.getValue();
             if (value == "") {
                 alert("Input a name!");
+                willClose = false;
             } else {
-                console.log(value);
-                props.closeScreen();
+                finalTask.name = value;
             }
+        }
+
+        if (willClose) {
+            if (willAdd) TaskHandler.taskList.push(finalTask);
+            props.closeScreen();
+            TaskHandler.taskListChange();
         }
     };
 
     const [ifGroupSelecting, changeIfGroupSelectingState] = useState(false);
 
     let getGroupNames: () => string[] = () => {
-        return names;
+        return GroupHandler.groupList.map((group) => group.name);
     };
-
-    console.log(props.task?.name);
 
     return (
         <div className="AddTaskScreen">
             <div className="nameInputDiv">
                 <p className="title">Name:</p>
-                <TextInput ref={nameInputRef}>{(props.task) ? props.task.name : ""}</TextInput>
+                <TextInput ref={nameInputRef} defaultValue={task ? task.name : ""}></TextInput>
             </div>
             <hr></hr>
             <div className="timeDiv">
@@ -56,7 +72,6 @@ export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
                 <DropDown
                     ref={groupDropDownRef}
                     onSelect={(value: string) => {
-                        names.push("here");
                         selectedGroupTextRef.current!.innerText = value;
                     }}
                     getNames={getGroupNames}
@@ -65,14 +80,19 @@ export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
                     }}
                 ></DropDown>
             )}
-            <GenericScreenButtons mainTitle={(props.task) ? "Save" : "Create"} secondaryTitle={"Cancel"} mainOnClick={onCreate} secondaryOnClick={props.closeScreen}></GenericScreenButtons>
+            <GenericScreenButtons
+                mainTitle={task ? "Save" : "Create"}
+                secondaryTitle={"Cancel"}
+                mainOnClick={() => {
+                    onFinish(task);
+                }}
+                secondaryOnClick={props.closeScreen}
+            ></GenericScreenButtons>
         </div>
     );
 };
 
 export interface AddTaskProps {
     closeScreen: () => void;
-    task?: Task;
+    getTask: () => Task | undefined;
 }
-
-const names: string[] = ["None", "Roomates", "Family"];

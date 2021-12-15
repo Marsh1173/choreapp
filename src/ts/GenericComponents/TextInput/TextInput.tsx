@@ -5,11 +5,15 @@ interface TextInputState {
     inputValue?: string;
 }
 
-export class TextInput extends React.Component<{}, TextInputState> {
-    constructor(props: any) {
+export interface textInputProps {
+    defaultValue?: string;
+}
+
+export class TextInput extends React.Component<textInputProps, TextInputState> {
+    constructor(props: textInputProps) {
         super(props);
         this.state = {
-            inputValue: "",
+            inputValue: this.props.defaultValue,
         };
     }
 
