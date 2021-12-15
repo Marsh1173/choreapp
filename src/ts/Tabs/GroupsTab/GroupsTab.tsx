@@ -27,7 +27,7 @@ export const GroupsTab: React.FC<{}> = () => {
                     {groupElements}
                 </div>
             </div>
-            <div className="addButton shadowed fade-in clickScaleBig" onMouseUp={() => changeIfAddingGroup(true)}>
+            <div className="addButton shadowed scale-in clickScaleBig" onMouseUp={() => changeIfAddingGroup(true)}>
                 <img className="addIcon" src="./images/addBlue.png"></img>
             </div>
             {isAddingGroup && (

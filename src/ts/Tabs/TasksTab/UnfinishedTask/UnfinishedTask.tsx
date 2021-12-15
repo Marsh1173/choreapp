@@ -4,12 +4,15 @@ import { UnfinishedTaskProp } from "../TasksTab";
 import "./UnfinishedTaskStyles.less";
 
 export const UnfinishedTask: React.FC<UnfinishedTaskProp> = (props) => {
+    let ifScaleIn: boolean = props.task.growInAnimation;
+    props.task.growInAnimation = false;
     return (
-        <div className="UnfinishedTask shadowed">
+        <div className={`UnfinishedTask shadowed ${ifScaleIn ? "scale-in" : ""}`}>
             <div
                 className="checkCircle clickScaleBig"
                 onMouseUp={() => {
                     props.task.finished = true;
+                    props.task.growInAnimation = true;
                     TaskHandler.taskListChange();
                 }}
             ></div>

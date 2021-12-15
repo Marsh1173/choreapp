@@ -24,7 +24,7 @@ export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
         let willAdd: boolean = false;
 
         if (!finalTask) {
-            finalTask = { name: "", id: getNextId(), finished: false, time: undefined, group: undefined };
+            finalTask = { name: "", id: getNextId(), finished: false, time: undefined, group: undefined, growInAnimation: false };
             willAdd = true;
         }
 
@@ -52,6 +52,7 @@ export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
 
         if (willClose) {
             if (willAdd) TaskHandler.taskList.push(finalTask);
+            finalTask.growInAnimation = true;
             props.closeScreen();
             TaskHandler.taskListChange();
         }

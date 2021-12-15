@@ -6,4 +6,5 @@ export interface Task {
     finished: boolean;
     group: Group | undefined;
     time: Date | undefined;
+    growInAnimation: boolean;
 }

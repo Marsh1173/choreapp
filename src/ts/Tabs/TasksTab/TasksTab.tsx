@@ -8,7 +8,7 @@ import { getNextKey } from "../../main";
 import { GenericScreen } from "../../Screens/GenericScreen/GenericScreen";
 import { AddTaskScreen } from "../../Screens/AddTaskScreen/AddTaskScreen";
 
-export var currentTask: Task = { name: "", id: -10, finished: false, time: undefined, group: undefined };
+export var currentTask: Task = { name: "", id: -10, finished: false, time: undefined, group: undefined, growInAnimation: false };
 
 export const TasksTab: React.FC<{}> = () => {
     const [value, setValue] = useState(0);
@@ -85,7 +85,7 @@ export const TasksTab: React.FC<{}> = () => {
                     {finishedElements}
                 </div>
             </div>
-            <div className="addButton shadowed fade-in clickScaleBig" onMouseUp={() => changeIfAddingTask(true)}>
+            <div className="addButton shadowed scale-in clickScaleBig" onMouseUp={() => changeIfAddingTask(true)}>
                 <img className="addIcon" src="./images/addBlue.png"></img>
             </div>
             {isAddingTask && (
