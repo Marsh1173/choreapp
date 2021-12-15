@@ -30,7 +30,7 @@
 .GenericScreen .container h1 {
     font-weight: lighter;
     color: rgba(0, 0, 0, 0.7);
-    margin: 1rem;
+    margin-top: 1rem;
 }
 
 .GenericScreen .container hr {
@@ -52,24 +52,29 @@
     width: 100%;
     overflow: visible;
 }
+.GenericScreenButtons .standardButtons,
 .GenericScreenButtons .extraButtons {
     margin-bottom: 1.5rem;
 }
+.GenericScreenButtons .extraButtons {
+    justify-content: space-evenly;
+}
 .GenericScreenButtons .extraButtons button {
-    font-size: 1rem;
+    font-size: 0.9rem;
     width: 5rem;
+    background-color: white;
+    color: rgb(56, 56, 56);
+    padding: 0.1rem;
 }
 .GenericScreenButtons .standardButtons button {
     font-size: 1.1rem;
     width: 6rem;
+    color: white;
+    border: none;
+    padding: 0.2rem;
 }
 
 .GenericScreenButtons button {
-    padding: 0.2rem;
-
-    color: white;
-
-    border: none;
     border-radius: 1rem;
 }
 
@@ -81,9 +86,9 @@
 }
 
 .GenericScreenButtons .extraButtons .deleteButton {
-    background-color: rgb(250, 89, 89);
+    border: 2px solid rgb(250, 89, 89);
 }
 
 .GenericScreenButtons .extraButtons .copyButton {
-    background-color: rgb(175, 175, 175);
+    border: 2px solid rgb(175, 175, 175);
 }

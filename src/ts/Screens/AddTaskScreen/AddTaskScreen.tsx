@@ -13,6 +13,10 @@ export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
     let selectedGroupTextRef: React.RefObject<HTMLParagraphElement> = React.createRef();
     let groupDropDownRef: React.RefObject<DropDown> = React.createRef();
 
+    //due refs
+    let dateDueRef: React.RefObject<HTMLInputElement> = React.createRef();
+    let timeDueRef: React.RefObject<HTMLInputElement> = React.createRef();
+
     let task: Task | undefined = props.getTask();
 
     let onFinish = (finalTask: Task | undefined) => {
@@ -20,10 +24,11 @@ export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
         let willAdd: boolean = false;
 
         if (!finalTask) {
-            finalTask = { name: "", id: getNextId(), finished: false, time: "", group: undefined };
+            finalTask = { name: "", id: getNextId(), finished: false, time: undefined, group: undefined };
             willAdd = true;
         }
 
+        //name
         if (nameInputRef.current) {
             let value: string = nameInputRef.current.getValue();
             if (value == "") {
@@ -32,6 +37,17 @@ export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
             } else {
                 finalTask.name = value;
             }
+        }
+
+        //date
+        let date: string = dateDueRef.current!.value;
+        let time: string = timeDueRef.current!.value;
+
+        if (date != "" && time != "") {
+            let dateObj: Date = new Date(date + " " + time);
+            finalTask.time = dateObj;
+        } else {
+            finalTask.time = undefined;
         }
 
         if (willClose) {
@@ -56,12 +72,12 @@ export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
                 </div>
                 <hr></hr>
                 <div className="timeDiv">
-                    <p className="title">Due by:</p>
-                    <input className="timeInput" type="time"></input>
+                    <p className="title">Due on:</p>
+                    <input ref={dateDueRef} className="dateInput" type="date"></input>
                 </div>
                 <div className="timeDiv">
-                    <p className="title">On:</p>
-                    <input className="dateInput" type="date"></input>
+                    <p className="title">By:</p>
+                    <input ref={timeDueRef} className="timeInput" type="time"></input>
                 </div>
                 <hr></hr>
                 <div className="groupDiv">

@@ -8,7 +8,7 @@ import { getNextKey } from "../../main";
 import { GenericScreen } from "../../Screens/GenericScreen/GenericScreen";
 import { AddTaskScreen } from "../../Screens/AddTaskScreen/AddTaskScreen";
 
-export var currentTask: Task = { name: "", id: -10, finished: false, time: "", group: undefined };
+export var currentTask: Task = { name: "", id: -10, finished: false, time: undefined, group: undefined };
 
 export const TasksTab: React.FC<{}> = () => {
     const [value, setValue] = useState(0);
@@ -49,6 +49,7 @@ export const TasksTab: React.FC<{}> = () => {
                 }}
                 task={task}
                 key={getNextKey()}
+                displayTime={getTaskTime(task)}
             ></UnfinishedTask>
         );
     });
@@ -63,6 +64,7 @@ export const TasksTab: React.FC<{}> = () => {
                 }}
                 task={task}
                 key={getNextKey()}
+                displayTime={getTaskDate(task)}
             ></UnfinishedTask>
         );
     });
@@ -71,15 +73,15 @@ export const TasksTab: React.FC<{}> = () => {
         <div className="TasksTab">
             <div className="taskContainer fade-in">
                 <div className="tasks">
-                    <h1 className="major-text center-text">Tasks</h1>
+                    <h1 className="major-text">Tasks</h1>
                     {taskElements}
                 </div>
                 <div className="coming-up">
-                    <h1 className="major-text center-text">Coming Up</h1>
+                    <h1 className="major-text">Coming Up</h1>
                     {comingupElements}
                 </div>
                 <div className="finished">
-                    <h1 className="major-text center-text">Finished</h1>
+                    <h1 className="major-text">Finished</h1>
                     {finishedElements}
                 </div>
             </div>
@@ -109,7 +111,49 @@ export const TasksTab: React.FC<{}> = () => {
 export interface UnfinishedTaskProp {
     task: Task;
     onEdit: () => void;
+    displayTime: string;
 }
 export interface FinishedTaskProp {
     task: Task;
+}
+
+var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+var dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+function getTaskTime(task: Task): string {
+    if (task.time) {
+        let hours: number = task.time.getHours();
+        let minutes: string = task.time.getMinutes().toString();
+        let ampm: string = "AM";
+        let dateString: string = "";
+
+        if (hours == 0) {
+            hours += 12;
+        } else if (hours >= 12) {
+            ampm = "PM";
+            if (hours >= 13) {
+                hours -= 12;
+            }
+        }
+
+        if (minutes == "0") {
+            minutes += "0";
+        }
+
+        let curDate: Date = new Date();
+        if (curDate.getDate() > task.time.getDate() && curDate.getFullYear() >= task.time.getFullYear() && curDate.getMonth() >= task.time.getMonth()) {
+            dateString = getTaskDate(task)! + " - ";
+        }
+
+        return dateString + hours + ":" + minutes + " " + ampm;
+    } else {
+        return "- no time -";
+    }
+}
+function getTaskDate(task: Task): string {
+    if (task.time) {
+        return dayNames[task.time.getDay()] + ", " + monthNames[task.time.getMonth()] + " " + task.time.getDate() + " " + task.time.getFullYear();
+    } else {
+        return "";
+    }
 }

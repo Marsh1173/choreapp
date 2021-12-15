@@ -5,5 +5,5 @@ export interface Task {
     id: number;
     finished: boolean;
     group: Group | undefined;
-    time: string;
+    time: Date | undefined;
 }

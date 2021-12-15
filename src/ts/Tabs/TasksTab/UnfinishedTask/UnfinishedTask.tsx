@@ -22,8 +22,8 @@ export const UnfinishedTask: React.FC<UnfinishedTaskProp> = (props) => {
                         - {props.task.group.name} -
                     </p>
                 )}
-                <h2 className="major-text far-text">{props.task.name}</h2>
-                <p className="minor-text far-text">{props.task.time}</p>
+                <h2 className="bigger-text far-text">{props.task.name}</h2>
+                <p className="minor-text far-text">{props.displayTime}</p>
             </div>
         </div>
     );
