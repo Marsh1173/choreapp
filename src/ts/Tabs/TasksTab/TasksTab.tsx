@@ -85,7 +85,7 @@ export const TasksTab: React.FC<{}> = () => {
                     {finishedElements}
                 </div>
             </div>
-            <div className="addButton shadowed scale-in clickScaleBig" onMouseUp={() => changeIfAddingTask(true)}>
+            <div className="addButton shadowed clickScaleBig" onMouseUp={() => changeIfAddingTask(true)}>
                 <img className="addIcon" src="./images/addBlue.png"></img>
             </div>
             {isAddingTask && (
