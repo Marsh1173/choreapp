@@ -14,7 +14,7 @@
     width: 100%;
     touch-action: none;
     font-weight: 600;
-    color: rgba(0, 0, 0, 0.9);
+    color: rgba(255, 0, 0, 0.9);
 
     display: flex;
     flex-direction: column-reverse;
@@ -188,7 +188,13 @@
 
 .scale-in {
     animation: @scaleInAnimation;
-    -webkit-animation: @scaleInAnimation;
+
+    -webkit-animation-name: scaleIn;
+    -webkit-animation-duration: 0.4s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-out;
+    -webkit-animation-delay: 0.01s;
+
     -moz-animation: @scaleInAnimation;
     -o-animation: @scaleInAnimation;
     -ms-animation: @scaleInAnimation;
