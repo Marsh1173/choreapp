@@ -117,6 +117,13 @@
 
 .fade-in {
     animation: @fadeInAnimation;
+
+    -webkit-animation-name: fadeIn;
+    -webkit-animation-duration: 0.4s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-out;
+    -webkit-animation-delay: 0.01s;
+
     -webkit-animation: @fadeInAnimation;
     -moz-animation: @fadeInAnimation;
     -o-animation: @fadeInAnimation;
