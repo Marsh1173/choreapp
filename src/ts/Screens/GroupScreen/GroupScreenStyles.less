@@ -1,0 +1,67 @@
+@import "../GenericScreen/GenericScreenStyles.less";
+@import "../../MainStyles.less";
+
+.GroupScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 1rem;
+    height: 93%;
+}
+.GroupScreen .dataDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: visible;
+}
+
+.GroupScreen .nameInputDiv,
+.GroupScreen .colorInputDiv {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0.25rem;
+}
+
+.memberDiv {
+    width: 100%;
+    overflow: visible;
+}
+
+.GroupScreen .TextInput {
+    width: 70%;
+}
+
+.GroupScreen .title {
+    color: rgba(0, 0, 0, 0.644);
+    width: 3.6rem;
+    text-align: end;
+}
+
+.GroupScreen .TextInput,
+.GroupScreen .title {
+    margin: 0.2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.GroupScreen .ownName {
+    width: 90%;
+    text-align: start;
+}
+
+.GroupScreen .newMemberButton {
+    width: 6rem;
+    font-size: 0.9rem;
+
+    color: white;
+
+    padding: 0.4rem;
+    margin: 0.2rem;
+
+    border: none;
+    border-radius: 1rem;
+    background-color: @mainColor;
+}

@@ -13,24 +13,22 @@ export function getNextKey(): number {
 }
 
 export interface TabName {
-    name: "Tasks" | "Groups" | "Profile" | "Settings";
+    name: "Tasks" | "Groups" | "Profile";
 }
 
 export const MainDiv: React.FC<{}> = () => {
-    let startTab: TabName = { name: "Tasks" };
+    let startTab: TabName = { name: "Groups" };
 
     const [currentTab, changeTabView] = useState(startTab);
 
     let tasksRef: React.RefObject<MainViewTab> = React.createRef();
     let groupsRef: React.RefObject<MainViewTab> = React.createRef();
     let profileRef: React.RefObject<MainViewTab> = React.createRef();
-    let settingsRef: React.RefObject<MainViewTab> = React.createRef();
 
     const changeTab = (tabName: TabName) => {
         tasksRef.current?.clearSelected();
         groupsRef.current?.clearSelected();
         profileRef.current?.clearSelected();
-        settingsRef.current?.clearSelected();
 
         switch (tabName.name) {
             case "Tasks":
@@ -41,9 +39,6 @@ export const MainDiv: React.FC<{}> = () => {
                 break;
             case "Profile":
                 profileRef.current?.setSelected();
-                break;
-            case "Settings":
-                settingsRef.current?.setSelected();
                 break;
         }
 
@@ -67,7 +62,6 @@ export const MainDiv: React.FC<{}> = () => {
                 {currentTab.name == "Tasks" && <TasksTab></TasksTab>}
                 {currentTab.name == "Groups" && <GroupsTab></GroupsTab>}
                 {currentTab.name == "Profile" && <ProfileTab></ProfileTab>}
-                {currentTab.name == "Settings" && <SettingsTab></SettingsTab>}
             </div>
         </div>
     );
@@ -75,3 +69,14 @@ export const MainDiv: React.FC<{}> = () => {
 
 const domContainer = document.querySelector("#reactDom");
 ReactDOM.render(createElement(MainDiv), domContainer);
+
+export function putLeadingZeros(num: number): string {
+    let str: string = num.toString();
+    while (str.length < 2) str = "0" + str;
+    return str;
+}
+
+export function putLeadingZerosOnStr(str: string): string {
+    while (str.length < 2) str = "0" + str;
+    return str;
+}

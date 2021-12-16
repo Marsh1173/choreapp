@@ -1,0 +1,27 @@
+@import "../../../MainStyles.less";
+
+.RepeatDaysComponent {
+    display: flex;
+}
+.RepeatDaysComponent button.selected {
+    background-color: @mainColor;
+    color: white;
+}
+
+.RepeatDaysComponent button {
+    width: @buttonWidth;
+    height: @buttonHeight;
+
+    border-radius: @buttonHeight;
+    border: 2px solid @mainColor;
+
+    background-color: white;
+    font-size: 0.8rem;
+    font-weight: bolder;
+    color: rgba(0, 0, 0, 0.7);
+
+    margin: 0.1rem;
+}
+
+@buttonHeight: 1.8rem;
+@buttonWidth: 3rem;

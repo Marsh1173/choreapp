@@ -7,6 +7,8 @@ interface TextInputState {
 
 export interface textInputProps {
     defaultValue?: string;
+    placeHolder?: string;
+    onChange?: (newVal: string) => void;
 }
 
 export class TextInput extends React.Component<textInputProps, TextInputState> {
@@ -18,13 +20,22 @@ export class TextInput extends React.Component<textInputProps, TextInputState> {
     }
 
     render() {
-        return <input className="TextInput" value={this.state.inputValue} onChange={(e) => this.updateInputValue(e)} autoComplete="off" />;
+        return (
+            <input
+                className="TextInput"
+                value={this.state.inputValue}
+                onChange={(e) => this.updateInputValue(e)}
+                placeholder={this.props.placeHolder}
+                autoComplete="off"
+            />
+        );
     }
 
     updateInputValue(e: ChangeEvent<HTMLInputElement>) {
         this.setState({
             inputValue: e.target.value,
         });
+        if (this.props.onChange) this.props.onChange(e.target.value);
     }
 
     getValue(): string {

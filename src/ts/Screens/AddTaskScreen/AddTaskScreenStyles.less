@@ -1,4 +1,5 @@
 @import "../GenericScreen/GenericScreenStyles.less";
+@import "../../MainStyles.less";
 
 .AddTaskScreen {
     display: flex;
@@ -17,13 +18,21 @@
 
 .AddTaskScreen .nameInputDiv,
 .AddTaskScreen .timeDiv,
-.AddTaskScreen .groupDiv {
+.AddTaskScreen .groupDiv,
+.AddTaskScreen .repeatDiv {
     display: flex;
     align-items: center;
     width: 100%;
     margin: 0.25rem;
 }
 
+.AddTaskScreen .repeatDiv {
+    flex-direction: column;
+}
+.AddTaskScreen .repeatDiv .title {
+    width: 100%;
+    text-align: start;
+}
 .AddTaskScreen .TextInput,
 .AddTaskScreen .selectedGroup {
     width: 70%;
@@ -31,15 +40,27 @@
 
 .AddTaskScreen .title {
     color: rgba(0, 0, 0, 0.644);
-    width: 3.5rem;
+    width: 3.6rem;
     text-align: end;
 }
 .AddTaskScreen .selectedGroup p,
 .AddTaskScreen .TextInput,
-.AddTaskScreen .title {
+.AddTaskScreen .title,
+.AddTaskScreen .rotateText {
     margin: 0.2rem;
     font-size: 0.9rem;
     font-weight: 500;
+}
+.AddTaskScreen .rotateText {
+    color: rgba(0, 0, 0, 0.2);
+    font-weight: bolder;
+    border: 2px solid @mainColor;
+    padding: 0.1rem;
+    border-radius: 4px;
+}
+.AddTaskScreen .rotateText.selected {
+    color: white;
+    background-color: @mainColor;
 }
 
 .AddTaskScreen .selectedGroup {

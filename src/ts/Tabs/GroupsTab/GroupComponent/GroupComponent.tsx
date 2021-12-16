@@ -8,10 +8,6 @@ export const GroupComponent: React.FC<GroupProp> = (props) => {
         return (
             <p className="memberName major-text" key={getNextKey()}>
                 {memberName}
-                <div className="editIcon clickScaleBig">
-                    as
-                    <img src="/images/edit.png"></img>
-                </div>
             </p>
         );
     });
@@ -20,11 +16,10 @@ export const GroupComponent: React.FC<GroupProp> = (props) => {
         <fieldset className="GroupComponent shadowed" style={{ border: "2px solid " + props.group.color }}>
             <legend className="groupTitle major-text" style={{ border: "2px solid " + props.group.color }}>
                 {props.group.name}
-                <div className="editIcon clickScaleBig">
-                    as
-                    <img src="/images/edit.png"></img>
-                </div>
             </legend>
+            <div className="editIcon clickScaleBig" onMouseUp={props.onEdit}>
+                <img src="/images/edit.png"></img>
+            </div>
             {memberNames}
         </fieldset>
     );

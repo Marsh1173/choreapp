@@ -4,11 +4,20 @@ import { FinishedTask } from "./FinishedTask/FinishedTask";
 import { UnfinishedTask } from "./UnfinishedTask/UnfinishedTask";
 import { Task } from "../../../Model/Task";
 import { TaskHandler } from "../../../Model/TaskHandler";
-import { getNextKey } from "../../main";
+import { getNextKey, putLeadingZerosOnStr } from "../../main";
 import { GenericScreen } from "../../Screens/GenericScreen/GenericScreen";
 import { AddTaskScreen } from "../../Screens/AddTaskScreen/AddTaskScreen";
 
-export var currentTask: Task = { name: "", id: -10, finished: false, time: undefined, group: undefined, growInAnimation: false };
+export var currentTask: Task = {
+    name: "",
+    id: -10,
+    finished: false,
+    time: undefined,
+    group: undefined,
+    growInAnimation: false,
+    ifRotates: false,
+    repeatIndex: 0,
+};
 
 export const TasksTab: React.FC<{}> = () => {
     const [value, setValue] = useState(0);
@@ -117,8 +126,8 @@ export interface FinishedTaskProp {
     task: Task;
 }
 
-var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-var dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+export var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+export var dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 function getTaskTime(task: Task): string {
     if (task.time) {
@@ -136,9 +145,7 @@ function getTaskTime(task: Task): string {
             }
         }
 
-        if (minutes == "0") {
-            minutes += "0";
-        }
+        minutes = putLeadingZerosOnStr(minutes);
 
         let curDate: Date = new Date();
         if (curDate.getDate() > task.time.getDate() && curDate.getFullYear() >= task.time.getFullYear() && curDate.getMonth() >= task.time.getMonth()) {

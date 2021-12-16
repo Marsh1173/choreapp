@@ -14,7 +14,7 @@ export const ProfileTab: React.FC<{}> = () => {
                 <div className="details">
                     <p>Nate Roylance</p>
                     <p>@n8rz</p>
-                    <p>509-717-8321</p>
+                    <p>123-456-7890</p>
                 </div>
             </div>
         </div>

@@ -7,4 +7,6 @@ export interface Task {
     group: Group | undefined;
     time: Date | undefined;
     growInAnimation: boolean;
+    repeatIndex: number;
+    ifRotates: boolean;
 }
