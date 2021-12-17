@@ -9,7 +9,7 @@ import { getNextId } from "../../../Model/Id";
 import "./AddTaskScreenStyles.less";
 import { Group } from "../../../Model/Group";
 import { putLeadingZeros } from "../../main";
-import { RepeatDaysComponent } from "./RepeatDaysComponent/RepeatDaysComponent";
+import { RadioComponent } from "./RadioComponent/RadioComponent";
 
 export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
     let nameInputRef: React.RefObject<TextInput> = React.createRef();
@@ -20,7 +20,10 @@ export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
     let dateDueRef: React.RefObject<HTMLInputElement> = React.createRef();
     let timeDueRef: React.RefObject<HTMLInputElement> = React.createRef();
     //repeat
-    let repeatDaysRef: React.RefObject<RepeatDaysComponent> = React.createRef();
+    let repeatDaysRef: React.RefObject<RadioComponent> = React.createRef();
+
+    //group rotate ref
+    let groupRotateRef: React.RefObject<RadioComponent> = React.createRef();
 
     let task: Task | undefined = props.getTask();
 
@@ -36,7 +39,7 @@ export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
                 time: undefined,
                 group: undefined,
                 growInAnimation: false,
-                ifRotates: false,
+                groupAssignmentIndex: 0,
                 repeatIndex: 0,
             };
             willAdd = true;
@@ -70,9 +73,9 @@ export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
         finalTask.group = group;
 
         if (group) {
-            finalTask.ifRotates = ifRotating;
+            finalTask.groupAssignmentIndex = groupRotateRef.current!.getIndex();
         } else {
-            finalTask.ifRotates = false;
+            finalTask.groupAssignmentIndex = 0;
         }
 
         //repeats
@@ -88,7 +91,7 @@ export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
 
     const [ifGroupSelecting, changeIfGroupSelectingState] = useState(false);
     const [selectedGroupName, changeSelectedGroupName] = useState(task && task.group ? task.group.name : "None");
-    const [ifRotating, changeIfRotating] = useState(task ? task.ifRotates : false);
+    //const [ifRotating, changeIfRotating] = useState(task ? task. : false);
     let getGroupNames: () => string[] = () => {
         let names: string[] = ["None"];
         names = names.concat(GroupHandler.groupList.map((group) => group.name));
@@ -140,16 +143,6 @@ export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
                         <p ref={selectedGroupTextRef}>{selectedGroupName}</p>
                     </div>
                 </div>
-                {selectedGroupName != "None" && (
-                    <p
-                        className={`rotateText ${ifRotating ? "selected" : ""}`}
-                        onMouseUp={() => {
-                            changeIfRotating(!ifRotating);
-                        }}
-                    >
-                        Rotates Members
-                    </p>
-                )}
                 {ifGroupSelecting && (
                     <DropDown
                         ref={groupDropDownRef}
@@ -162,10 +155,16 @@ export const AddTaskScreen: React.FC<AddTaskProps> = (props) => {
                         }}
                     ></DropDown>
                 )}
+                {selectedGroupName != "None" && (
+                    <div className="repeatDiv">
+                        <p className="title">Assigned to:</p>
+                        <RadioComponent ref={groupRotateRef} index={task?.groupAssignmentIndex} options={["Me", "Rotates", "Everyone"]}></RadioComponent>
+                    </div>
+                )}
                 <hr></hr>
                 <div className="repeatDiv">
                     <p className="title">Repeats every:</p>
-                    <RepeatDaysComponent ref={repeatDaysRef} repeatIndex={task?.repeatIndex}></RepeatDaysComponent>
+                    <RadioComponent ref={repeatDaysRef} index={task?.repeatIndex} options={["Never", "Day", "Week", "Month"]}></RadioComponent>
                 </div>
             </div>
 

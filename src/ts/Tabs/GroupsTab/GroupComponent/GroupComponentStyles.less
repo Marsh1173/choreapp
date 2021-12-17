@@ -6,15 +6,27 @@
     align-items: start;
 
     width: 85%;
-    padding: 0.2rem;
 
     margin-top: 1rem;
 
     background-color: white;
     border-radius: 0.5rem;
+
+    min-height: 6rem;
 }
+
+.GroupComponent .extraButtons {
+    width: 79%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-end;
+    position: absolute;
+}
+
 .GroupComponent p {
     margin: 0.1rem;
+    margin-left: 0.5rem;
 }
 .GroupComponent legend {
     display: flex;
@@ -24,9 +36,5 @@
     padding: 5px 10px;
     background-color: white;
     border-radius: 0.5rem;
-}
-
-.GroupComponent .editIcon {
-    align-self: flex-end;
-    position: absolute;
+    margin-left: 0.5rem;
 }

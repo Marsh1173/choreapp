@@ -4,7 +4,7 @@ import "./ProfileTabStyles.less";
 export const ProfileTab: React.FC<{}> = () => {
     return (
         <div className="ProfileTab fade-in">
-            <h1 className="major-text center-text">Profile</h1>
+            <img src="./images/profileBlack.png"></img>
             <div className="infoContainer">
                 <div className="labels">
                     <p>Name:</p>

@@ -8,7 +8,7 @@ import { GroupComponent } from "./GroupComponent/GroupComponent";
 import { GroupHandler } from "../../../Model/GroupHandler";
 import { GroupScreen } from "../../Screens/GroupScreen/GroupScreen";
 
-export var currentGroup: Group = { name: "", id: -1, members: [], color: "#000000" };
+export var currentGroup: Group = { name: "", id: -1, members: [], color: "#000000", visible: true };
 
 export const GroupsTab: React.FC<{}> = () => {
     const [value, setValue] = useState(0);

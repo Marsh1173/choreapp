@@ -13,13 +13,17 @@ export class TaskHandler {
 
     public static getToDoTasks(): Task[] {
         let curDate: Date = new Date();
-        let filtered: Task[] = this.taskList.filter((task) => task.finished == false && (!task.time || isSameDayOrEarlier(curDate, task.time)));
+        let filtered: Task[] = this.taskList.filter(
+            (task) => (!task.group || task.group.visible) && task.finished == false && (!task.time || isSameDayOrEarlier(curDate, task.time)),
+        );
         return filtered.sort(sortPrioritizeUnset);
     }
 
     public static getComingUpTasks(): Task[] {
         let curDate: Date = new Date();
-        let filtered: Task[] = this.taskList.filter((task) => task.finished == false && task.time && !isSameDayOrEarlier(curDate, task.time));
+        let filtered: Task[] = this.taskList.filter(
+            (task) => (!task.group || task.group.visible) && task.finished == false && task.time && !isSameDayOrEarlier(curDate, task.time),
+        );
         return filtered.sort(sortPrioritizeUnset);
     }
 

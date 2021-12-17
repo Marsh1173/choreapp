@@ -22,6 +22,7 @@ export const GroupScreen: React.FC<AddGroupProps> = (props) => {
     }, []);
 
     let nameInputRef: React.RefObject<TextInput> = React.createRef();
+    let colorInputRef: React.RefObject<HTMLInputElement> = React.createRef();
     let group: Group | undefined = props.getGroup();
 
     let onFinish = (finalGroup: Group | undefined) => {
@@ -29,7 +30,7 @@ export const GroupScreen: React.FC<AddGroupProps> = (props) => {
         let willAdd: boolean = false;
 
         if (!finalGroup) {
-            finalGroup = { name: "", id: getNextId(), members: [], color: "#000000" };
+            finalGroup = { name: "", id: getNextId(), members: [], color: "#000000", visible: true };
             willAdd = true;
         }
 
@@ -43,6 +44,12 @@ export const GroupScreen: React.FC<AddGroupProps> = (props) => {
                 finalGroup.name = value;
             }
         }
+        //group members
+        let newMemberList: string[] = groupMemberNames.filter((name) => name != "");
+        finalGroup.members = newMemberList;
+        //color
+        let color: string = colorInputRef.current!.value;
+        finalGroup.color = color;
 
         if (willClose) {
             if (willAdd) GroupHandler.groupList.push(finalGroup);
@@ -97,7 +104,7 @@ export const GroupScreen: React.FC<AddGroupProps> = (props) => {
                 <hr></hr>
                 <div className="colorInputDiv">
                     <p className="title">Color:</p>
-                    <input type="color" defaultValue={group ? group.color : "#000000"}></input>
+                    <input ref={colorInputRef} type="color" defaultValue={group ? group.color : "#000000"}></input>
                 </div>
             </div>
             <GenericScreenButtons

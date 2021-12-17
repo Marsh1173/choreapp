@@ -17,7 +17,7 @@ export interface TabName {
 }
 
 export const MainDiv: React.FC<{}> = () => {
-    let startTab: TabName = { name: "Groups" };
+    let startTab: TabName = { name: "Tasks" };
 
     const [currentTab, changeTabView] = useState(startTab);
 

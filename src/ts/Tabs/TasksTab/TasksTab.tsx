@@ -15,7 +15,7 @@ export var currentTask: Task = {
     time: undefined,
     group: undefined,
     growInAnimation: false,
-    ifRotates: false,
+    groupAssignmentIndex: 0,
     repeatIndex: 0,
 };
 

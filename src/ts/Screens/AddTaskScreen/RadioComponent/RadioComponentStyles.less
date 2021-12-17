@@ -1,18 +1,15 @@
 @import "../../../MainStyles.less";
 
-.RepeatDaysComponent {
+.RadioComponent {
     display: flex;
 }
-.RepeatDaysComponent button.selected {
+.RadioComponent button.selected {
     background-color: @mainColor;
     color: white;
 }
 
-.RepeatDaysComponent button {
-    width: @buttonWidth;
-    height: @buttonHeight;
-
-    border-radius: @buttonHeight;
+.RadioComponent button {
+    border-radius: 5rem;
     border: 2px solid @mainColor;
 
     background-color: white;
@@ -21,6 +18,7 @@
     color: rgba(0, 0, 0, 0.7);
 
     margin: 0.1rem;
+    padding: 0.3rem;
 }
 
 @buttonHeight: 1.8rem;

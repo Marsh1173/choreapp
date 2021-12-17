@@ -3,4 +3,5 @@ export interface Group {
     id: number;
     members: string[];
     color: string;
+    visible: boolean;
 }

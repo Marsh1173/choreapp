@@ -8,5 +8,5 @@ export interface Task {
     time: Date | undefined;
     growInAnimation: boolean;
     repeatIndex: number;
-    ifRotates: boolean;
+    groupAssignmentIndex: number;
 }
