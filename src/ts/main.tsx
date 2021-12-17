@@ -5,7 +5,6 @@ import "./MainStyles.less";
 import { TasksTab } from "./Tabs/TasksTab/TasksTab";
 import { GroupsTab } from "./Tabs/GroupsTab/GroupsTab";
 import { ProfileTab } from "./Tabs/ProfileTab/ProfileTab";
-import { SettingsTab } from "./Tabs/SettingsTab/SettingsTab";
 
 let nextId: number = 0;
 export function getNextKey(): number {

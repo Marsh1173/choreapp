@@ -17,6 +17,7 @@ export const ProfileTab: React.FC<{}> = () => {
                     <p>123-456-7890</p>
                 </div>
             </div>
+            <button className="changeAccountBtn">Change Account</button>
         </div>
     );
 };

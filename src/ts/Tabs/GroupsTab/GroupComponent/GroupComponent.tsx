@@ -7,16 +7,22 @@ export const GroupComponent: React.FC<GroupProp> = (props) => {
     let memberNames: JSX.Element[] = props.group.members.map((memberName) => {
         return (
             <p className="memberName major-text" key={getNextKey()}>
-                {memberName}
+                @{memberName}
             </p>
         );
     });
 
+    memberNames.unshift(
+        <p className="memberName major-text" key={getNextKey()}>
+            @n8rz
+        </p>,
+    );
+
     const [visible, changeVisibility] = useState(props.group.visible);
 
     return (
-        <fieldset className="GroupComponent shadowed" style={{ border: "2px solid " + props.group.color }}>
-            <legend className="groupTitle major-text shadowed" style={{ border: "2px solid " + props.group.color }}>
+        <fieldset className="GroupComponent" style={{ border: "2px solid " + props.group.color }}>
+            <legend className="groupTitle major-text" style={{ border: "2px solid " + props.group.color }}>
                 {props.group.name}
             </legend>
             {memberNames}
